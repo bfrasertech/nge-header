@@ -1,4 +1,6 @@
 import * as React from 'react';
+import GuidedSearch from './components/GuidedSearch';
+import styles from './HeaderApp.module.scss';
 
 export interface IHeaderAppProps{
   data: string;
@@ -16,11 +18,7 @@ export default class HeaderApp extends React.Component<IHeaderAppProps, IHeaderA
     };
   }
 
-  componentDidMount(){
-
-  }
-
   public render(): React.ReactElement<IHeaderAppProps> {
-  return <div>{this.state.data + 'from react'}</div>;
+  return <div className={styles.guidedSearchContainer}><GuidedSearch /></div>;
   }
 }
