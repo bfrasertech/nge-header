@@ -1,3 +1,18 @@
+// @font-face {
+//   font-family: 'RobotoRegular';
+//   src: url('./fonts//Roboto-Regular.ttf') format('truetype');
+// } 
+
+// .guidedSearchContainer{
+//   width: 100%;
+//   font-family: 'RobotoRegular';
+//   font-size: 15px;
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap'); 
+
 .guidedSearchContainer{
   width: 100%;
+  font-family: 'Roboto';
+  font-size: 15px;
 }
