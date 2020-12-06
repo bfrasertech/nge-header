@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://frasertechnicalsolutions.sharepoint.com",
+      "customActions": {
+        "ed90ee12-247d-4283-ac41-a654d5651e63": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    },
+    "ngeHeaderCustomization": {
+      "pageUrl": "https://frasertechnicalsolutions.sharepoint.com",
+      "customActions": {
+        "ed90ee12-247d-4283-ac41-a654d5651e63": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    }
+  }
+}

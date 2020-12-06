@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CustomAction
+        Title="NgeHeaderCustomization"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ClientSideComponentId="ed90ee12-247d-4283-ac41-a654d5651e63"
+        ClientSideComponentProperties="{&quot;testMessage&quot;:&quot;Test message&quot;}">
+    </CustomAction>
+</Elements>
