@@ -8,11 +8,13 @@
 //   font-family: 'RobotoRegular';
 //   font-size: 15px;
 // }
+@import './global-vars.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap'); 
 
 .guidedSearchContainer{
   width: 100%;
   font-family: 'Roboto';
   font-size: 15px;
+  color: $gunmetal;
 }

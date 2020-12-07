@@ -1,7 +1,14 @@
 import * as React from 'react';
+import styles from './GuidedSearch.module.scss';
 
-const GuidedSearch : React.FC<Record<string, unknown>> = () => {
-  return <div>Guided Search</div>
+export interface IGuidedSearchProps {
+  initialText: string;
+}
+
+const GuidedSearch : React.FC<IGuidedSearchProps> = (props: IGuidedSearchProps) => {
+  const {initialText} = props;
+
+return <div className={styles.searchBox}><div>{initialText}</div></div>  
 }
 
 export default GuidedSearch;

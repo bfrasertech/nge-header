@@ -19,6 +19,6 @@ export default class HeaderApp extends React.Component<IHeaderAppProps, IHeaderA
   }
 
   public render(): React.ReactElement<IHeaderAppProps> {
-  return <div className={styles.guidedSearchContainer}><GuidedSearch /></div>;
+  return <div className={styles.guidedSearchContainer}><GuidedSearch initialText='search people, clients, matters, and documents...' /></div>;
   }
 }
