@@ -6,7 +6,7 @@ export interface ISearchBoxProps {
   onSearch: (searchTerm: string) => void;
 }
 
-const GuidedSearch : React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
+const SearchBox : React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
   const {initialText, onSearch} = props;
   const [searchTerm, setSearchTerm] = React.useState<string>(initialText);
 
@@ -52,4 +52,4 @@ const GuidedSearch : React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
         
     </div>
 );};
-export default GuidedSearch;
+export default SearchBox;
