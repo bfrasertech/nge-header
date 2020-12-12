@@ -9,8 +9,17 @@ const SearchResults : React.FC<ISearchResultsProps> = (props: ISearchResultsProp
 
   return (
     <div className={styles.searchResultsContainer}>
-        results here
-        
+      <div>
+        <div className={styles.resultsHeader}>
+          <div className={styles.headerContent}>
+            <span className={styles.contentCategory}>People Directory</span>
+            <label className={styles.contentTypeLabel}>People</label>
+            <select>
+              <option value="1">People</option>
+            </select>
+          </div>
+        </div>
+        </div> 
     </div>
 );};
 export default SearchResults;

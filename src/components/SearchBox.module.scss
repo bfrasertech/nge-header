@@ -27,6 +27,9 @@
    background-color: $white;
    border: none;
    cursor: pointer;
+   &:focus{
+    outline: none;
+  }
  }
  .searchIcon{
    height: 20px;
