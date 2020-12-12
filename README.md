@@ -78,8 +78,3 @@ This extension illustrates the following concepts:
 - Local workbench url https://localhost:5432/workbench
 - SP based workbench url /_layouts/workbench.aspx
 - Note: workbench does not work for extensions. You will need to modify /config/serve.json to include the appropriate pageUrl in both default and ngeHeaderCustomization sections
-
-## Docker Configuration (based on instructions from https://github.com/waldekmastykarz/docker-spfx)
-- Added "hostname": "0.0.0.0", to config/serve.json file
-- Added "debugBasePath": "https://localhost:4321" to config/write-manifests.json file
-- Applied updates to node_modules\@microsoft\sp-build-web\lib\SPWebBuildRig.js as described in above link beginning on line 97
