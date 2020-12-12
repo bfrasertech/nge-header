@@ -1,2 +1,46 @@
 @import '../global-vars.module.scss';
 
+.searchContainer{
+  display: flex;
+ width: 1207px; 
+ height: 50px;
+ margin: 0 117px 0 0;
+ border: 1px solid $searchBoxBorderColor;
+ background-color: $white;
+ padding: 0 0 0 15px;
+ font-family: 'Roboto';
+ color: $gunmetal;
+ line-height: 1.65;
+ .searchBox{
+  width: 1016px;
+  margin: 0 15px 0 0;
+  border: none;
+  color: $gunmetal;
+  font-size: 15px;
+  &:focus{
+    outline: none;
+  }
+ }
+ .searchButton{
+   width: 55px;
+   height: 50px;
+   background-color: $white;
+   border: none;
+   cursor: pointer;
+ }
+ .searchIcon{
+   height: 20px;
+   width: 20px;
+   font-size: 20px;
+   color: $gunmetal;
+ }
+ .advancedSearchButton{
+   width: 121px;
+   height: 50px;
+   background-color: $squash;
+   border: none;
+   font-size: 13px;
+   color: $black;
+   cursor: pointer;
+ }
+}

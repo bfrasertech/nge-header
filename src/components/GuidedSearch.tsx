@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styles from './GuidedSearch.module.scss';
+import SearchBox from './SearchBox';
 
 export interface IGuidedSearchProps {
   initialText: string;
@@ -13,11 +14,18 @@ const GuidedSearch : React.FC<IGuidedSearchProps> = (props: IGuidedSearchProps) 
     setShowResults(true);
   };
 
-  return (<div className={styles.searchBox} onKeyDown={(e) => {if (e.key === 'Enter') {showSearch();}}}>
-    <input type='text' value="abc" />
-    {showResults && <div>results here</div> }
-    </div>);  
-  // return (<div>test</div>);
- };
+  const handleSearch = (searchTerm: string): void => {
+    setShowResults(true);
+  };
+
+  return <div><SearchBox initialText={initialText} onSearch={handleSearch} /></div>;
+};
+
+//   return (<div className={styles.searchBox} onKeyDown={(e) => {if (e.key === 'Enter') {showSearch();}}}>
+//     <input type='text' value="abc" />
+//     {showResults && <div>results here</div> }
+//     </div>);  
+//   // return (<div>test</div>);
+//  };
 
 export default GuidedSearch;
