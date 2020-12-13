@@ -78,6 +78,7 @@ const SearchResults : React.FC<ISearchResultsProps> = (props: ISearchResultsProp
             </select>
           </div>
         </div>
+        <div className={styles.resultsContainer}>
         <div className={styles.mainResultPanel}>
           <div className={styles.innerContainer}>
             {
@@ -88,6 +89,8 @@ const SearchResults : React.FC<ISearchResultsProps> = (props: ISearchResultsProp
               })
             }
           </div>
+        </div>
+        <div className={styles.resultNavPanel}>Results nav here</div>
         </div>
         </div> 
     </div>

@@ -48,4 +48,13 @@
       align-content: center;
     }
   }
+  .resultsContainer{
+    display: flex;
+  }
+  .resultNavPanel{
+    width: 480px;
+    position: relative;
+    top: 81px;
+    background-color: $gunMetalTwo;
+  }
 }
