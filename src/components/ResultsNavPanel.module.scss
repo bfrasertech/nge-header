@@ -2,7 +2,61 @@
 
 .resultNavPanel {
     width: 480px;
+    height: 1356px;
     position: relative;
     top: 81px;
     background-color: $gunMetalTwo;
+    .navSection {
+        width: 100%;
+        .navSectionHeader {
+            margin: 30px 0 0 30px;
+            color: $white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .navSectionMain {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px 0 0 30px;
+            .resultsNavButton {
+                width: 200px;
+                height: 40px;
+                margin: 2px 20px 22px 0;
+                padding: 12px 10px;
+                background-color: $squash;
+                border: none;
+                font-size: 13px;
+                font-weight: 500;
+                color: $black;
+                cursor: pointer;
+            }
+            .resultText {
+                color: $white;
+                font-size: 14px;
+                font-weight: 500;
+                margin: 0 0 25px;
+                width: 410px;
+            }
+        }
+        .viewMoreButtonContainer {
+            margin: 0 0 0 30px;
+            width: 86px;
+        }
+        .viewMoreButton {
+            cursor: pointer;
+            width: 100%;
+            height: 35px;
+            padding: 8px 10px;
+            border: solid 2px $white;
+            background-color: transparent;
+            color: $white;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .navSectionDivider {
+            background-color: $navSectionDividerColor;
+            margin: 20px 40px 0 30px;
+            height: 1px;
+        }
+    }
 }
