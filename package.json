@@ -32,6 +32,7 @@
     "@types/react-dom": "^17.0.0",
     "@types/webpack-env": "1.13.1",
     "ajv": "~5.2.2",
-    "gulp": "~3.9.1"
+    "gulp": "~3.9.1",
+    "prettier": "^2.2.1"
   }
 }
