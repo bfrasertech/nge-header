@@ -85,10 +85,237 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                 </div>
                 <div className={styles.resultsContainer}>
                     <div className={styles.mainResultPanel}>
-                        <div className={styles.innerContainer}>
-                            {peopleResults.map((person: IPerson) => {
-                                return <PersonCard person={person} />;
-                            })}
+                        <div className={styles.mainResultSection}>
+                            <div className={styles.innerContainer}>
+                                {peopleResults.map((person: IPerson) => {
+                                    return <PersonCard person={person} />;
+                                })}
+                            </div>
+                            <div className={styles.viewMoreButtonContainer}>
+                                <div>
+                                    <button
+                                        type="button"
+                                        className={styles.viewMoreButton}
+                                    >
+                                        View More
+                                    </button>
+                                </div>
+                            </div>
+                            <div className={styles.mainResultSectionDivider}>
+                                <hr />
+                            </div>
+                        </div>
+                        <div className={styles.mainResultSection}>
+                            <div className={styles.innerContainer}>
+                                <div className={styles.mainResultSectionHeader}>
+                                    <span>Document Results</span>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span className={styles.linkButton}>
+                                            Document name description
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span className={styles.linkButton}>
+                                            First name / last name
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span>12/22/2019</span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span className={styles.linkButton}>
+                                            Document name description
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span className={styles.linkButton}>
+                                            First name / last name
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span>12/22/2019</span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span className={styles.linkButton}>
+                                            Document name description
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span className={styles.linkButton}>
+                                            First name / last name
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span>12/22/2019</span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span className={styles.linkButton}>
+                                            Document name description
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span className={styles.linkButton}>
+                                            First name / last name
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span>12/22/2019</span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span className={styles.linkButton}>
+                                            Document name description
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span className={styles.linkButton}>
+                                            First name / last name
+                                        </span>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <span>12/22/2019</span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.viewMoreButtonContainer}>
+                                <div>
+                                    <button
+                                        type="button"
+                                        className={styles.viewMoreButton}
+                                    >
+                                        View More
+                                    </button>
+                                </div>
+                            </div>
+                            <div className={styles.mainResultSectionDivider}>
+                                <hr />
+                            </div>
+                        </div>
+                        <div className={styles.mainResultSection}>
+                            <div className={styles.innerContainer}>
+                                <div className={styles.mainResultSectionHeader}>
+                                    <span>Intranet Results</span>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span>
+                                            <span className={styles.linkButton}>Lorem ipsum</span> dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionLineItem}
+                                >
+                                    <div>
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit.
+                                            Maecenas porttitor congue massa.
+                                            Fusce
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.viewMoreButtonContainer}>
+                                <div>
+                                    <button
+                                        type="button"
+                                        className={styles.viewMoreButton}
+                                    >
+                                        View More
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <ResultsNavPanel />
