@@ -1,6 +1,8 @@
 import * as React from "react";
 import { IPerson } from "../models/IPerson";
 import { PersonCard } from "./PersonCard";
+import { ResultsNavPanel } from "./ResultsNavPanel";
+
 import styles from "./SearchResults.module.scss";
 
 export interface ISearchResultsProps {}
@@ -89,9 +91,7 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                             })}
                         </div>
                     </div>
-                    <div className={styles.resultNavPanel}>
-                        Results nav here
-                    </div>
+                    <ResultsNavPanel />
                 </div>
             </div>
         </div>
