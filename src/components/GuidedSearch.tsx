@@ -16,7 +16,7 @@ const GuidedSearch : React.FC<IGuidedSearchProps> = (props: IGuidedSearchProps) 
   };
 
   const handleSearch = (searchTerm: string): void => {
-    setShowResults(true);
+    setShowResults(!showResults);
   };
 
   return <div className={styles.guidedSearchContainer}><SearchBox initialText={initialText} onSearch={handleSearch} />

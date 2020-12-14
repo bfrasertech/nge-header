@@ -13,7 +13,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                     Continue Searching in:
                 </div>
                 <div className={styles.navSectionMain}>
-                    <div>
+                    <div className={styles.buttonContainer}>
                         <button
                             type="button"
                             className={styles.resultsNavButton}
@@ -21,7 +21,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             People Directory
                         </button>
                     </div>
-                    <div>
+                    <div className={styles.buttonContainer}>
                         <button
                             type="button"
                             className={styles.resultsNavButton}
@@ -29,7 +29,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             Intranet Content
                         </button>
                     </div>
-                    <div>
+                    <div className={styles.buttonContainer}>
                         <button
                             type="button"
                             className={styles.resultsNavButton}
@@ -37,7 +37,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             Clients
                         </button>
                     </div>
-                    <div>
+                    <div className={styles.buttonContainer}>
                         <button
                             type="button"
                             className={styles.resultsNavButton}
@@ -45,7 +45,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             Matters
                         </button>
                     </div>
-                    <div>
+                    <div className={styles.buttonContainer}>
                         <button
                             type="button"
                             className={styles.resultsNavButton}
@@ -53,7 +53,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             Documents
                         </button>
                     </div>
-                    <div>
+                    <div className={styles.buttonContainer}>
                         <button
                             type="button"
                             className={styles.resultsNavButton}
