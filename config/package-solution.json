@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "nge-header-solution-client-side-solution",
+    "name": "nge-header",
     "id": "495d42c5-bd17-41db-9df3-2a2d60cc52d4",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
