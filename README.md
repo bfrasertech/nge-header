@@ -77,3 +77,5 @@ This extension illustrates the following concepts:
 -   Local workbench url https://localhost:5432/workbench
 -   SP based workbench url /\_layouts/workbench.aspx
 -   Note: workbench does not work for extensions. You will need to modify /config/serve.json to include the appropriate pageUrl in both default and ngeHeaderCustomization sections
+-   When debugging locally you will sometimes get the error "Error: Script error for: https://localhost:4321/temp/manifests.js http://requirejs.org/docs/errors.html#scripterror"
+    In that case browse directly to https://localhost:4321/ accept the cert warning continue on. Then debugging should work normally.
