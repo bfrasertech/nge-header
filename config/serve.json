@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://frasertechnicalsolutions.sharepoint.com",
+      "pageUrl": "https://nge0.sharepoint.com/sites/AccessNGE/",
       "customActions": {
         "ed90ee12-247d-4283-ac41-a654d5651e63": {
           "location": "ClientSideExtension.ApplicationCustomizer",
@@ -15,7 +15,7 @@
       }
     },
     "ngeHeaderCustomization": {
-      "pageUrl": "https://frasertechnicalsolutions.sharepoint.com",
+      "pageUrl": "https://nge0.sharepoint.com/sites/AccessNGE/",
       "customActions": {
         "ed90ee12-247d-4283-ac41-a654d5651e63": {
           "location": "ClientSideExtension.ApplicationCustomizer",
