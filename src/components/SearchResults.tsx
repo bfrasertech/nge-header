@@ -5,67 +5,15 @@ import { ResultsNavPanel } from "./ResultsNavPanel";
 
 import styles from "./SearchResults.module.scss";
 
-export interface ISearchResultsProps {}
+export interface ISearchResultsProps {
+  peopleResults: IPerson[];
+}
 
 const SearchResults: React.FC<ISearchResultsProps> = (
     props: ISearchResultsProps
 ) => {
-    let peopleResults: IPerson[] = [];
-
-    peopleResults.push({
-        id: "1",
-        name: "name",
-        extension: "ext",
-        title: "title",
-        assistantName: "rate",
-        assistantExtension: "a_ext",
-        photoUrl: "photo url",
-        office: "office"
-    });
-
-    peopleResults.push({
-        id: "1",
-        name: "name",
-        extension: "ext",
-        title: "title",
-        assistantName: "rate",
-        assistantExtension: "a_ext",
-        photoUrl: "photo url",
-        office: "office"
-    });
-
-    peopleResults.push({
-        id: "1",
-        name: "name",
-        extension: "ext",
-        title: "title",
-        assistantName: "rate",
-        assistantExtension: "a_ext",
-        photoUrl: "photo url",
-        office: "office"
-    });
-
-    peopleResults.push({
-        id: "1",
-        name: "name",
-        extension: "ext",
-        title: "title",
-        assistantName: "rate",
-        assistantExtension: "a_ext",
-        photoUrl: "photo url",
-        office: "office"
-    });
-
-    peopleResults.push({
-        id: "1",
-        name: "name",
-        extension: "ext",
-        title: "title",
-        assistantName: "rate",
-        assistantExtension: "a_ext",
-        photoUrl: "photo url",
-        office: "office"
-    });
+  const {peopleResults} = props;
+   
 
     return (
         <div className={styles.searchResultsContainer}>

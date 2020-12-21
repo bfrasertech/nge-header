@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
 import { override } from '@microsoft/decorators';
 import { Log } from '@microsoft/sp-core-library';
 import {
@@ -8,7 +7,8 @@ import {
   PlaceholderContent,
   PlaceholderName
 } from '@microsoft/sp-application-base';
-import { Dialog } from '@microsoft/sp-dialog';
+
+
 
 import * as strings from 'NgeHeaderCustomizationApplicationCustomizerStrings';
 
@@ -37,21 +37,11 @@ export default class NgeHeaderCustomizationApplicationCustomizer
     const topPlaceholder: PlaceholderContent | undefined =
       this.context.placeholderProvider.tryCreateContent(PlaceholderName.Top, { onDispose: this.handleDispose });
 
-
-    let message: string = this.properties.testMessage;
-
     if (topPlaceholder){
       const headerAppElement: React.ReactElement<IHeaderAppProps> = React.createElement(HeaderApp);
-      headerAppElement.props.data = message;
+      headerAppElement.props.context = this.context;
       ReactDOM.render(headerAppElement, topPlaceholder.domElement);
-      // topPlaceholder.domElement.textContent = message;
     }
-
-    // if (!message) {
-    //   message = '(No properties were provided.)';
-    // }
-
-    // Dialog.alert(`Hello from ${strings.Title}:\n\n${message}`);
 
     return Promise.resolve();
   }

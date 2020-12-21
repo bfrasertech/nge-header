@@ -1,10 +1,18 @@
 export interface IPerson{
-  id: string;
-  name: string;
-  extension: string;
-  title: string;
-  photoUrl: string;
-  assistantName: string;
-  assistantExtension: string;
-  office: string;
+  employeeId: number;
+  timeKeeperId: number;
+  displayName: string;
+  lastName: string;
+  suffix: string;
+  middleName: string;
+  firstName: string;
+  departmentName: string;
+  primaryPractice: string;
+  jobTitle: string;
+  ngeEmail: string;
+  ngePhone: string;
+  officeLocation: string;
+  ngePhoto: string;
+  ngeAssistant: string;
+  ngeAssistantPhone: string;
 }

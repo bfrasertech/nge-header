@@ -13,27 +13,27 @@ export const PersonCard: React.FC<IPersonCardProps> = (props: IPersonCardProps):
   return (
     <div className={styles.card}>
       <a href={`#`} target="_blank">
-      <div className={styles.photo} onError={() => alert('no image')} style={{ backgroundImage: `url(${props.person.photoUrl}), url(${personPlaceholder})` }}>
+      <div className={styles.photo} onError={() => alert('no image')} style={{ backgroundImage: `url(${props.person.ngePhoto}), url(${personPlaceholder})` }}>
       </div>
       </a>
       <div className={styles.dataContainer}>
       <div className={styles.nameAndTitleContainer}>
         <div>
-        <span className={styles.name}>{person.name}</span>
+        <span className={styles.name}>{person.displayName}</span>
         </div>
         <div>
-        <span className={styles.title}>{person.title}</span>
+        <span className={styles.title}>{person.jobTitle}</span>
         </div>
       </div>
       <div className={styles.otherDetailsContainer}>
       <div>
-        <label htmlFor="">Ext:</label> <span className={styles.name}>{person.extension}</span>
+        <label htmlFor="">Ext:</label> <span className={styles.name}>{person.ngePhone}</span>
         </div>
         <div>
-        <label htmlFor="">Secretary:</label> <span className={styles.name}>{person.assistantName}</span>
+        <label htmlFor="">Secretary:</label> <span className={styles.name}>{person.ngeAssistant}</span>
         </div>
         <div>
-        <label htmlFor="">Office:</label> <span className={styles.name}>{person.office}</span>
+        <label htmlFor="">Office:</label> <span className={styles.name}>{person.officeLocation}</span>
         </div>
       </div>
       </div>
