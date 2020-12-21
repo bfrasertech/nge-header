@@ -16,6 +16,7 @@ const SearchBox : React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
 
   const onSearchTermChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(evt.target.value);
+    onSearch(evt.target.value);
   };
 
   const onSearchKeyDown = (evt: React.KeyboardEvent<HTMLInputElement>) => {
@@ -52,4 +53,5 @@ const SearchBox : React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
         
     </div>
 );};
+
 export default SearchBox;

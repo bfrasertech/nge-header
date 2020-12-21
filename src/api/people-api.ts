@@ -1,5 +1,5 @@
 
-import { AadHttpClient, HttpClientResponse, IHttpClientOptions } from '@microsoft/sp-http';
+import { AadHttpClient, MSGraphClient, HttpClientResponse, IHttpClientOptions } from '@microsoft/sp-http';
 import { ApplicationCustomizerContext } from '@microsoft/sp-application-base';
 import { IPerson } from '../models/IPerson';
 import { config } from '../config';
@@ -21,10 +21,25 @@ export const searchPeople = async (searchTerm: string, context: ApplicationCusto
   }).then(async (response: HttpClientResponse): Promise<IPerson[]> => {
     const data = await response.json();
 
+    if (searchTerm === '' || searchTerm.length < 3){
+      return [];
+    }
+
     if (response.ok) {
-      return data;
+      const res: IPerson[] = data;
+      return res.filter((p) => p.displayName.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0);
     } else {
       return Promise.reject(data);
     }
+  });
+};
+
+export const getPersonPhoto = async (loginName: string, context: ApplicationCustomizerContext): Promise<string> => {
+  return context.msGraphClientFactory.getClient().then((graphClient: MSGraphClient) => {
+    return graphClient.api(`/users/${loginName}/photo/$value`).responseType('blob').get();
+  }).then(async (response: any): Promise<string> => {
+    return response;
+  }).catch((error) => {
+    return Promise.reject(error);
   });
 };
