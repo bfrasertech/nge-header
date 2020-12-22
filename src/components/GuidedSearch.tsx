@@ -18,16 +18,25 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
     const [showResults, setShowResults] = React.useState<boolean>(false);
     const [searchTerm, setSearchTerm] = React.useState<string>('');
 
-    const handleSearch = (searchTerm: string): void => {
-        setSearchTerm(searchTerm);
+    const handleSearch = (currentSearchTerm: string): void => {
+        setSearchTerm(currentSearchTerm);
         setShowResults(!showResults);
+    };
+
+    const handleAdvancedSearch = (currentSearchTerm: string): void => {
+      setSearchTerm(currentSearchTerm);
+      setShowResults(!showResults);
+  };
+
+    const handleSearchTermChange = (newSearchTerm: string): void => {
+      setSearchTerm(newSearchTerm);
     };
 
     const { data: peopleResults } = usePeopleSearch(searchTerm, context);
 
     return (
         <div className={styles.guidedSearchContainer}>
-            <SearchBox initialText={initialText} onSearch={handleSearch} />
+            <SearchBox initialText={initialText} onSearchTermChange={handleSearchTermChange} onSearch={handleSearch} onAdvancedSearch={handleAdvancedSearch} />
             {showResults && (
                 <SearchResults peopleResults={peopleResults} context={context} />
             )}
