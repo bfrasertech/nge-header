@@ -18,7 +18,8 @@
     "@microsoft/sp-dialog": "1.11.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-query": "^3.4.0"
+    "react-query": "^3.4.0",
+    "throttle-debounce": "^3.0.1"
   },
   "devDependencies": {
     "@microsoft/rush-stack-compiler-3.9": "^0.4.37",
