@@ -1,4 +1,7 @@
 import * as React from "react";
+import { debounce } from "throttle-debounce";
+
+import { config } from "../config";
 import styles from "./SearchBox.module.scss";
 
 export interface ISearchBoxProps {
@@ -7,6 +10,15 @@ export interface ISearchBoxProps {
     onAdvancedSearch: (currentSearchTerm: string) => void;
     onSearchTermChange: (searchTerm: string) => void;
 }
+
+// note: this function must be defined outside of the component
+const debounceNotifySearchChanged = debounce(
+    config.searchDebounceDelay,
+    false,
+    (notifyFunc, searchTerm) => {
+        notifyFunc(searchTerm);
+    }
+);
 
 const SearchBox: React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
     const {
@@ -45,7 +57,7 @@ const SearchBox: React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
             setSearchTerm(evt.target.value);
         }
 
-        onSearchTermChange(evt.target.value);
+        debounceNotifySearchChanged(onSearchTermChange, evt.target.value);
     };
 
     const handleKeyPress = (evt: React.KeyboardEvent<HTMLInputElement>) => {
