@@ -63,7 +63,6 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
                 <div ref={resultsRef}>
                     <SearchResults
                         peopleResults={peopleResults}
-                        context={context}
                     />
                 </div>
             )}

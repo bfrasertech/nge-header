@@ -1,6 +1,7 @@
 import * as React from "react";
 import { ApplicationCustomizerContext } from "@microsoft/sp-application-base";
 
+import { HeaderContext } from "../HeaderContext";
 import { IPerson } from "../models/IPerson";
 import { PersonCard } from "./PersonCard";
 import { ResultsNavPanel } from "./ResultsNavPanel";
@@ -9,13 +10,12 @@ import styles from "./SearchResults.module.scss";
 
 export interface ISearchResultsProps {
     peopleResults: IPerson[];
-    context: ApplicationCustomizerContext;
 }
 
 const SearchResults: React.FC<ISearchResultsProps> = (
     props: ISearchResultsProps
 ) => {
-    const { peopleResults, context } = props;
+    const { peopleResults } = props;
 
     return (
         <div className={styles.searchResultsContainer}>
@@ -39,12 +39,7 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                             {peopleResults && peopleResults.length > 0 ? (
                                 <div className={styles.innerContainer}>
                                     {peopleResults.map((person: IPerson) => {
-                                        return (
-                                            <PersonCard
-                                                person={person}
-                                                context={context}
-                                            />
-                                        );
+                                        return <PersonCard person={person} />;
                                     })}
                                 </div>
                             ) : (
