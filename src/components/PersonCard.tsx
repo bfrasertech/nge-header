@@ -1,5 +1,4 @@
 import * as React from "react";
-import { ApplicationCustomizerContext } from "@microsoft/sp-application-base";
 import { NgePortrait } from "nge-library";
 
 import { HeaderContext } from "../HeaderContext";

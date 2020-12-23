@@ -1,21 +1,22 @@
 import * as React from "react";
-import { ApplicationCustomizerContext } from "@microsoft/sp-application-base";
+import { IDocument } from "../models/IDocument";
 
-import { HeaderContext } from "../HeaderContext";
 import { IPerson } from "../models/IPerson";
 import { PersonCard } from "./PersonCard";
+import { DocumentResultItem } from "./DocumentResultItem";
 import { ResultsNavPanel } from "./ResultsNavPanel";
 
 import styles from "./SearchResults.module.scss";
 
 export interface ISearchResultsProps {
     peopleResults: IPerson[];
+    documentResults: IDocument[];
 }
 
 const SearchResults: React.FC<ISearchResultsProps> = (
     props: ISearchResultsProps
 ) => {
-    const { peopleResults } = props;
+    const { peopleResults, documentResults } = props;
 
     return (
         <div className={styles.searchResultsContainer}>
@@ -65,121 +66,18 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                                 <div className={styles.mainResultSectionHeader}>
                                     <span>Document Results</span>
                                 </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span className={styles.linkButton}>
-                                            Document name description
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span className={styles.linkButton}>
-                                            First name / last name
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span>12/22/2019</span>
-                                    </div>
-                                    <div>
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit.
-                                            Maecenas porttitor congue massa.
-                                            Fusce
-                                        </span>
-                                    </div>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span className={styles.linkButton}>
-                                            Document name description
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span className={styles.linkButton}>
-                                            First name / last name
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span>12/22/2019</span>
-                                    </div>
-                                    <div>
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit.
-                                            Maecenas porttitor congue massa.
-                                            Fusce
-                                        </span>
-                                    </div>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span className={styles.linkButton}>
-                                            Document name description
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span className={styles.linkButton}>
-                                            First name / last name
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span>12/22/2019</span>
-                                    </div>
-                                    <div>
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit.
-                                            Maecenas porttitor congue massa.
-                                            Fusce
-                                        </span>
-                                    </div>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span className={styles.linkButton}>
-                                            Document name description
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span className={styles.linkButton}>
-                                            First name / last name
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span>12/22/2019</span>
-                                    </div>
-                                    <div>
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit.
-                                            Maecenas porttitor congue massa.
-                                            Fusce
-                                        </span>
-                                    </div>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span className={styles.linkButton}>
-                                            Document name description
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span className={styles.linkButton}>
-                                            First name / last name
-                                        </span>
-                                        <span>&nbsp;|&nbsp;</span>
-                                        <span>12/22/2019</span>
-                                    </div>
-                                    <div>
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit.
-                                            Maecenas porttitor congue massa.
-                                            Fusce
-                                        </span>
-                                    </div>
-                                </div>
+                                {documentResults &&
+                                documentResults.length > 0 ? (
+                                    documentResults.map(
+                                        (document: IDocument) => (
+                                            <DocumentResultItem
+                                                document={document}
+                                            />
+                                        )
+                                    )
+                                ) : (
+                                    <div>No Results</div>
+                                )}
                             </div>
                             <div className={styles.viewMoreButtonContainer}>
                                 <div>

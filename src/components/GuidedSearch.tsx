@@ -3,6 +3,8 @@ import { ApplicationCustomizerContext } from "@microsoft/sp-application-base";
 import { useOutsideClick } from "../hooks/useOutsideClick";
 
 import { usePeopleSearch } from "../hooks/usePeopleSearch";
+import { useDocumentSearch } from "../hooks/useDocumentSearch";
+
 import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
 import styles from "./GuidedSearch.module.scss";
@@ -32,7 +34,7 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
     };
 
     const handleSearchInputClick = (): void => {
-      disableClickOutsideBehavior = true;
+        disableClickOutsideBehavior = true;
     };
 
     const handleSearchTermChange = (newSearchTerm: string): void => {
@@ -41,6 +43,8 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
     };
 
     const { data: peopleResults } = usePeopleSearch(searchTerm, context);
+    const { data: documentResults } = useDocumentSearch(searchTerm, context);
+
     const resultsRef = React.useRef<HTMLDivElement>();
 
     useOutsideClick(resultsRef, () => {
@@ -61,9 +65,7 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
             />
             {showResults && (
                 <div ref={resultsRef}>
-                    <SearchResults
-                        peopleResults={peopleResults}
-                    />
+                    <SearchResults peopleResults={peopleResults} documentResults={documentResults} />
                 </div>
             )}
         </div>
