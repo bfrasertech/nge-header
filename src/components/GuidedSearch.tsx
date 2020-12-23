@@ -33,7 +33,7 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
 
     const handleSearchInputClick = (): void => {
       disableClickOutsideBehavior = true;
-    }
+    };
 
     const handleSearchTermChange = (newSearchTerm: string): void => {
         setSearchTerm(newSearchTerm);

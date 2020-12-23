@@ -33,13 +33,3 @@ export const searchPeople = async (searchTerm: string, context: ApplicationCusto
     }
   });
 };
-
-export const getPersonPhoto = async (loginName: string, context: ApplicationCustomizerContext): Promise<string> => {
-  return context.msGraphClientFactory.getClient().then((graphClient: MSGraphClient) => {
-    return graphClient.api(`/users/${loginName}/photo/$value`).responseType('blob').get();
-  }).then(async (response: any): Promise<string> => {
-    return response;
-  }).catch((error) => {
-    return Promise.reject(error);
-  });
-};
