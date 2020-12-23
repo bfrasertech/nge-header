@@ -1,6 +1,6 @@
 @import "../global-vars.module.scss";
 
-.searchResultsContainer {
+.container {
     height: 1356px;
     width: 1664px;
     background-color: $white;
@@ -9,88 +9,65 @@
     top: 50px;
     z-index: 10;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 4px 4px 0 rgba(0, 0, 0, 0.12);
-    .resultsHeader {
-        height: 81px;
-        background-color: $lightGray;
-        position: absolute;
-        width: 1664px;
-        .headerContent {
-            margin: 40px 0 20px 40px;
-            & select {
-                margin-left: 5px;
-            }
-            .contentCategory {
-                color: $black;
-                font-size: 18px;
-                font-weight: 500;
-            }
-            .contentTypeLabel {
-                margin: 0 0 0 21px;
-                color: $black;
-                font-size: 12px;
-                font-weight: 500;
-            }
+}
+.mainResultPanel {
+    height: 329px;
+    width: 1181px;
+    background-color: $white;
+    position: relative;
+    top: 81px;
+    padding: 40px 0 0 40px;
+    .mainResultSection {
+        margin: 20px 0 0 0;
+        .mainResultSectionDivider {
+            margin: 40px 0 0 -40px;
+            background-color: $navSectionDividerColor;
+            height: 1px;
         }
-    }
-    .mainResultPanel {
-        height: 329px;
-        width: 1181px;
-        background-color: $white;
-        position: relative;
-        top: 81px;
-        padding: 40px 0 0 40px;
-        .mainResultSection {
-            margin: 20px 0 0 0;
-            .mainResultSectionDivider {
-                margin: 40px 0 0 -40px;
-                background-color: $navSectionDividerColor;
-                height: 1px;
-            }
-            .mainResultSectionHeader {
-                width: 100%;
-                color: $black;
-                font-size: 18px;
-                font-weight: 500;
-            }
-            .mainResultSectionLineItem {
-                width: 100%;
-                margin: 20px 0 0 0;
-                .linkButton {
-                    color: $deepTurquoise;
-                    font-size: 15px;
-                }
-                & span {
-                    font-size: 15px;
-                    color: $black;
-                }
-            }
-        }
-        .innerContainer {
+        .mainResultSectionHeader {
             width: 100%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            box-sizing: border-box;
-            align-content: center;
-        }
-        .viewMoreButtonContainer {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        .viewMoreButton {
-            cursor: pointer;
-            width: 100%;
-            height: 35px;
-            padding: 8px 10px;
-            border: solid 2px $black;
-            background-color: transparent;
             color: $black;
-            font-size: 13px;
+            font-size: 18px;
             font-weight: 500;
         }
+        .mainResultSectionLineItem {
+            width: 100%;
+            margin: 20px 0 0 0;
+            .linkButton {
+                color: $deepTurquoise;
+                font-size: 15px;
+            }
+            & span {
+                font-size: 15px;
+                color: $black;
+            }
+        }
     }
-    .resultsContainer {
+    .innerContainer {
+        width: 100%;
         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        align-content: center;
     }
+    .viewMoreButtonContainer {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .viewMoreButton {
+        cursor: pointer;
+        width: 100%;
+        height: 35px;
+        padding: 8px 10px;
+        border: solid 2px $black;
+        background-color: transparent;
+        color: $black;
+        font-size: 13px;
+        font-weight: 500;
+    }
+}
+.resultsContainer {
+    display: flex;
 }

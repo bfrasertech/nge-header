@@ -1,0 +1,25 @@
+@import "../global-vars.module.scss";
+
+.resultsHeader {
+    height: 81px;
+    background-color: $lightGray;
+    position: absolute;
+    width: 1664px;
+    .headerContent {
+        margin: 40px 0 20px 40px;
+        & select {
+            margin-left: 5px;
+        }
+        .contentCategory {
+            color: $black;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .contentTypeLabel {
+            margin: 0 0 0 21px;
+            color: $black;
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+}

@@ -6,6 +6,7 @@ import { PersonCard } from "./PersonCard";
 import { DocumentResultItem } from "./DocumentResultItem";
 import { IntranetResultItem } from "./IntranetResultItem";
 import { ResultsNavPanel } from "./ResultsNavPanel";
+import { ResultPanelHeader } from "./ResultPanelHeader";
 
 import styles from "./SearchResults.module.scss";
 import { IIntranetResult } from "../models/IIntranetResult";
@@ -22,21 +23,9 @@ const SearchResults: React.FC<ISearchResultsProps> = (
     const { peopleResults, documentResults, intranetResults } = props;
 
     return (
-        <div className={styles.searchResultsContainer}>
+        <div className={styles.container}>
             <div>
-                <div className={styles.resultsHeader}>
-                    <div className={styles.headerContent}>
-                        <span className={styles.contentCategory}>
-                            People Directory
-                        </span>
-                        <label className={styles.contentTypeLabel}>
-                            People
-                        </label>
-                        <select>
-                            <option value="1">People</option>
-                        </select>
-                    </div>
-                </div>
+                <ResultPanelHeader />
                 <div className={styles.resultsContainer}>
                     <div className={styles.mainResultPanel}>
                         <div className={styles.mainResultSection}>
