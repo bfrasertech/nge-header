@@ -8,6 +8,7 @@ export interface ISearchBoxProps {
     initialText: string;
     onSearch: (currentSearchTerm: string) => void;
     onAdvancedSearch: (currentSearchTerm: string) => void;
+    onSearchInputClick: () => void;
     onSearchTermChange: (searchTerm: string) => void;
 }
 
@@ -25,7 +26,8 @@ const SearchBox: React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
         initialText,
         onSearch,
         onAdvancedSearch,
-        onSearchTermChange
+        onSearchTermChange,
+        onSearchInputClick
     } = props;
     const [searchTerm, setSearchTerm] = React.useState<string>(initialText);
     const inputRef = React.useRef<HTMLInputElement>();
@@ -42,6 +44,8 @@ const SearchBox: React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
         if (searchTerm === initialText) {
             inputRef.current.setSelectionRange(0, 0);
         }
+
+        onSearchInputClick();
     };
 
     const handleSearchTermChange = (

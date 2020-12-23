@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ApplicationCustomizerContext } from "@microsoft/sp-application-base";
+import { useOutsideClick } from "../hooks/useOutsideClick";
 
 import { usePeopleSearch } from "../hooks/usePeopleSearch";
 import SearchBox from "./SearchBox";
@@ -15,30 +16,56 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
     props: IGuidedSearchProps
 ) => {
     const { initialText, context } = props;
+
     const [showResults, setShowResults] = React.useState<boolean>(false);
-    const [searchTerm, setSearchTerm] = React.useState<string>('');
+    const [searchTerm, setSearchTerm] = React.useState<string>("");
+
+    let disableClickOutsideBehavior = false;
 
     const handleSearch = (currentSearchTerm: string): void => {
-        setSearchTerm(currentSearchTerm);
-        setShowResults(!showResults);
+        setShowResults(true);
+        disableClickOutsideBehavior = true;
     };
 
     const handleAdvancedSearch = (currentSearchTerm: string): void => {
-      setSearchTerm(currentSearchTerm);
-      setShowResults(!showResults);
-  };
+        disableClickOutsideBehavior = true;
+    };
+
+    const handleSearchInputClick = (): void => {
+      disableClickOutsideBehavior = true;
+    }
 
     const handleSearchTermChange = (newSearchTerm: string): void => {
-      setSearchTerm(newSearchTerm);
+        setSearchTerm(newSearchTerm);
+        setShowResults(true);
     };
 
     const { data: peopleResults } = usePeopleSearch(searchTerm, context);
+    const resultsRef = React.useRef<HTMLDivElement>();
+
+    useOutsideClick(resultsRef, () => {
+        if (!disableClickOutsideBehavior) {
+            setShowResults(false);
+        }
+        disableClickOutsideBehavior = false;
+    });
 
     return (
         <div className={styles.guidedSearchContainer}>
-            <SearchBox initialText={initialText} onSearchTermChange={handleSearchTermChange} onSearch={handleSearch} onAdvancedSearch={handleAdvancedSearch} />
+            <SearchBox
+                initialText={initialText}
+                onSearchTermChange={handleSearchTermChange}
+                onSearch={handleSearch}
+                onAdvancedSearch={handleAdvancedSearch}
+                onSearchInputClick={handleSearchInputClick}
+            />
             {showResults && (
-                <SearchResults peopleResults={peopleResults} context={context} />
+                <div ref={resultsRef}>
+                    <SearchResults
+                        peopleResults={peopleResults}
+                        context={context}
+                    />
+                </div>
             )}
         </div>
     );
