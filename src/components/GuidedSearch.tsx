@@ -4,6 +4,7 @@ import { useOutsideClick } from "../hooks/useOutsideClick";
 
 import { usePeopleSearch } from "../hooks/usePeopleSearch";
 import { useDocumentSearch } from "../hooks/useDocumentSearch";
+import { useIntranetSearch } from "../hooks/useIntranetSearch";
 
 import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
@@ -44,6 +45,7 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
 
     const { data: peopleResults } = usePeopleSearch(searchTerm, context);
     const { data: documentResults } = useDocumentSearch(searchTerm, context);
+    const { data: intranetResults } = useIntranetSearch(searchTerm, context);
 
     const resultsRef = React.useRef<HTMLDivElement>();
 
@@ -65,7 +67,11 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
             />
             {showResults && (
                 <div ref={resultsRef}>
-                    <SearchResults peopleResults={peopleResults} documentResults={documentResults} />
+                    <SearchResults
+                        peopleResults={peopleResults}
+                        documentResults={documentResults}
+                        intranetResults={intranetResults}
+                    />
                 </div>
             )}
         </div>

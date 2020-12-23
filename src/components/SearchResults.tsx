@@ -4,19 +4,22 @@ import { IDocument } from "../models/IDocument";
 import { IPerson } from "../models/IPerson";
 import { PersonCard } from "./PersonCard";
 import { DocumentResultItem } from "./DocumentResultItem";
+import { IntranetResultItem } from "./IntranetResultItem";
 import { ResultsNavPanel } from "./ResultsNavPanel";
 
 import styles from "./SearchResults.module.scss";
+import { IIntranetResult } from "../models/IIntranetResult";
 
 export interface ISearchResultsProps {
     peopleResults: IPerson[];
     documentResults: IDocument[];
+    intranetResults: IIntranetResult[];
 }
 
 const SearchResults: React.FC<ISearchResultsProps> = (
     props: ISearchResultsProps
 ) => {
-    const { peopleResults, documentResults } = props;
+    const { peopleResults, documentResults, intranetResults } = props;
 
     return (
         <div className={styles.searchResultsContainer}>
@@ -98,68 +101,16 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                                 <div className={styles.mainResultSectionHeader}>
                                     <span>Intranet Results</span>
                                 </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span>
-                                            <span className={styles.linkButton}>
-                                                Lorem ipsum
-                                            </span>{" "}
-                                            dolor sit amet, consectetuer
-                                            adipiscing elit. Maecenas porttitor
-                                            congue massa. Fusce
-                                        </span>
-                                    </div>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit.
-                                            Maecenas porttitor congue massa.
-                                            Fusce
-                                        </span>
-                                    </div>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit.
-                                            Maecenas porttitor congue massa.
-                                            Fusce
-                                        </span>
-                                    </div>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit.
-                                            Maecenas porttitor congue massa.
-                                            Fusce
-                                        </span>
-                                    </div>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionLineItem}
-                                >
-                                    <div>
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit.
-                                            Maecenas porttitor congue massa.
-                                            Fusce
-                                        </span>
-                                    </div>
-                                </div>
+                                {intranetResults &&
+                                intranetResults.length > 0 ? (
+                                    intranetResults.map((intranetResult) => (
+                                        <IntranetResultItem
+                                            intranetResult={intranetResult}
+                                        />
+                                    ))
+                                ) : (
+                                    <div>No Results</div>
+                                )}
                             </div>
                             <div className={styles.viewMoreButtonContainer}>
                                 <div>
