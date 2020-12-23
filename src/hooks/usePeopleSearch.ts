@@ -4,5 +4,5 @@ import { searchPeople } from '../api/people-api';
 import { IPerson } from '../models/IPerson';
 
 export const usePeopleSearch = (searchTerm: string, context: ApplicationCustomizerContext): QueryObserverResult<IPerson[], Error> => {
-  return useQuery<IPerson[], Error>(['search', searchTerm], () => searchPeople(searchTerm, context), { staleTime: Infinity, retry: 1 });
+  return useQuery<IPerson[], Error>(['person-search', searchTerm], () => searchPeople(searchTerm, context), { staleTime: 60000, retry: 2 });
 };
