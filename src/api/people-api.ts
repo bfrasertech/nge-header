@@ -1,5 +1,5 @@
 
-import { AadHttpClient, MSGraphClient, HttpClientResponse, IHttpClientOptions } from '@microsoft/sp-http';
+import { AadHttpClient, HttpClientResponse, IHttpClientOptions } from '@microsoft/sp-http';
 import { ApplicationCustomizerContext } from '@microsoft/sp-application-base';
 import { IPerson } from '../models/IPerson';
 import { config } from '../config';
@@ -12,22 +12,17 @@ export const searchPeople = async (searchTerm: string, context: ApplicationCusto
         'content-type': 'application/json',
         'accept': 'application/json'
       },
-      body: null
+      body: JSON.stringify({searchTerm: searchTerm, maxResults: 8})
     };
 
-    const uri = `${config.baseApiEndpoint}/api/people/directory`;
+    const uri = `${config.baseApiEndpoint}/api/people/search`;
 
     return aadClient.post(uri, AadHttpClient.configurations.v1, options);
   }).then(async (response: HttpClientResponse): Promise<IPerson[]> => {
     const data = await response.json();
 
-    if (searchTerm === '' || searchTerm.length < 3){
-      return [];
-    }
-
     if (response.ok) {
-      const res: IPerson[] = data;
-      return res.filter((p) => p.displayName.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0);
+      return data;
     } else {
       return Promise.reject(data);
     }
