@@ -27,31 +27,25 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                     </a>
                     <div className={styles.dataContainer}>
                         <div className={styles.nameAndTitleContainer}>
-                            <div>
-                                <span className={styles.name}>
-                                    {person.displayName}
-                                </span>
+                            <div className={styles.name}>
+                                <span>{person.displayName}</span>
                             </div>
-                            <div>
-                                <span className={styles.title}>
-                                    {person.jobTitle}
-                                </span>
+                            <div className={styles.jobTitle}>
+                                <span>{person.jobTitle}</span>
                             </div>
                         </div>
                         <div className={styles.otherDetailsContainer}>
-                            <div>
-                                <label htmlFor="">Ext:</label>{" "}
-                                <span className={styles.name}>
-                                    {person.ngePhone}
-                                </span>
+                            <div className={styles.phoneNumber}>
+                                <label>Ext:</label>{" "}
+                                <span>{person.ngePhone}</span>
                             </div>
-                            <div>
+                            <div className={styles.assistant}>
                                 <label htmlFor="">Secretary:</label>{" "}
                                 <span className={styles.name}>
                                     {person.ngeAssistant}
                                 </span>
                             </div>
-                            <div>
+                            <div className={styles.office}>
                                 <label htmlFor="">Office:</label>{" "}
                                 <span className={styles.name}>
                                     {person.officeLocation}

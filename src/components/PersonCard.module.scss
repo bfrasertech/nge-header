@@ -1,50 +1,56 @@
-@import '../global-vars.module.scss';
+@import "../global-vars.module.scss";
 
 .card {
-  height: 125px;
-  width: 260px;
-  display: flex;
-  .photo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    border: 1px solid #669ac5;
-    .fallback {
-      background-image: url('../images//person.png');
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background-size: cover;
-      background-position: center;
+    height: 105px;
+    width: 260px;
+    display: flex;
+    .dataContainer {
+        margin: 0 0 0 11px;
     }
-  }
-  .dataContainer{
-    margin: 0 0 0 11px;
-  }
 
-  .nameAndTitleContainer{
-    width: 200px;
-    .name{
-      font-size: 16px;
-      font-weight: 500;
-      color: $deepTurquoise;
+    .nameAndTitleContainer {
+        width: 200px;
+        height: 38px;
+        .name {
+            font-size: 16px;
+            font-weight: 500;
+            height: 19px;
+            color: $deepTurquoise;
+        }
+        .jobTitle {
+            font-size: 12px;
+            height: 14px;
+            color: $gunMetalTwo;
+        }
     }
-    .title{
-      font-size: 12px;
-      color: $gunMetalTwo;
+    .otherDetailsContainer {
+        font-size: 12px;
+        width: 200px;
+        height: 52px;
+        margin: 15px 0 0 0;
+        .phoneNumber {
+            height: 14px;
+            font-size: 12px;
+            color: $black;
+            & label {
+                font-weight: 500;
+            }
+        }
+        .assistant {
+            height: 14px;
+            font-size: 12px;
+            color: $black;
+            & label {
+                font-weight: 500;
+            }
+        }
+        .office {
+            height: 14px;
+            font-size: 12px;
+            color: $black;
+            & label {
+                font-weight: 500;
+            }
+        }
     }
-  }
-  .otherDetailsContainer{
-    font-size: 12px;
-    width: 200px;
-    margin: 15px 0 0 0;
-    & label{
-      font-weight: 500;
-      color: $black;
-    }
-  }
-
-  
 }

@@ -30,19 +30,21 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                 <div className={styles.resultsContainer}>
                     <div className={styles.mainResultPanel}>
                         <div className={styles.mainResultSection}>
-                            <PeopleResults results={peopleResults} />
-                            <div className={styles.viewMoreButtonContainer}>
-                                <div>
+                            <div className={styles.mainResultSectionContent}>
+                                <PeopleResults results={peopleResults} />
+                                <div className={styles.viewMoreButtonContainer}>
                                     <button
                                         type="button"
                                         className={styles.viewMoreButton}
                                     >
-                                        View More
+                                        <span>View more</span>
                                     </button>
                                 </div>
-                            </div>
-                            <div className={styles.mainResultSectionDivider}>
-                                <hr />
+                                <div
+                                    className={styles.mainResultSectionDivider}
+                                >
+                                    <hr />
+                                </div>
                             </div>
                         </div>
                         <div className={styles.mainResultSection}>
