@@ -2,11 +2,12 @@ import * as React from "react";
 import { IDocument } from "../models/IDocument";
 
 import { IPerson } from "../models/IPerson";
-import { PersonCard } from "./PersonCard";
+
 import { DocumentResultItem } from "./DocumentResultItem";
 import { IntranetResultItem } from "./IntranetResultItem";
 import { ResultsNavPanel } from "./ResultsNavPanel";
 import { ResultPanelHeader } from "./ResultPanelHeader";
+import { PeopleResults } from "./PeopleResults";
 
 import styles from "./SearchResults.module.scss";
 import { IIntranetResult } from "../models/IIntranetResult";
@@ -29,16 +30,7 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                 <div className={styles.resultsContainer}>
                     <div className={styles.mainResultPanel}>
                         <div className={styles.mainResultSection}>
-                            {peopleResults && peopleResults.length > 0 ? (
-                                <div className={styles.innerContainer}>
-                                    {peopleResults.map((person: IPerson) => {
-                                        return <PersonCard person={person} />;
-                                    })}
-                                </div>
-                            ) : (
-                                <div>No results</div>
-                            )}
-
+                            <PeopleResults results={peopleResults} />
                             <div className={styles.viewMoreButtonContainer}>
                                 <div>
                                     <button
