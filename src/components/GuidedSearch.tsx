@@ -71,6 +71,8 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
                         peopleResults={peopleResults}
                         documentResults={documentResults}
                         intranetResults={intranetResults}
+                        webServerRelativeUrl={context.pageContext.web.serverRelativeUrl}
+                        currentSearchTerm={searchTerm}
                     />
                 </div>
             )}

@@ -8,20 +8,23 @@ import { ResultPanelHeader } from "./ResultPanelHeader";
 import { PeopleResults } from "./PeopleResults";
 import { DocumentResults } from "./DocumentResults";
 import { IntranetResults } from "./IntranetResults";
+import { IIntranetResult } from "../models/IIntranetResult";
+import { config } from "../config";
 
 import styles from "./SearchResults.module.scss";
-import { IIntranetResult } from "../models/IIntranetResult";
 
 export interface ISearchResultsProps {
     peopleResults: IPerson[];
     documentResults: IDocument[];
     intranetResults: IIntranetResult[];
+    webServerRelativeUrl: string;
+    currentSearchTerm: string;
 }
 
 const SearchResults: React.FC<ISearchResultsProps> = (
     props: ISearchResultsProps
 ) => {
-    const { peopleResults, documentResults, intranetResults } = props;
+    const { peopleResults, documentResults, intranetResults, webServerRelativeUrl, currentSearchTerm } = props;
 
     return (
         <div className={styles.container}>
@@ -33,12 +36,17 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                             <div className={styles.mainResultSectionContent}>
                                 <PeopleResults results={peopleResults} />
                                 <div className={styles.viewMoreButtonContainer}>
-                                    <button
-                                        type="button"
-                                        className={styles.viewMoreButton}
+                                    <a
+                                        href={`${webServerRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=people&k=${currentSearchTerm}`}
+                                        target="_blank"
                                     >
-                                        <span>View more</span>
-                                    </button>
+                                        <button
+                                            type="button"
+                                            className={styles.viewMoreButton}
+                                        >
+                                            <span>View more</span>
+                                        </button>
+                                    </a>
                                 </div>
                                 <div
                                     className={styles.mainResultSectionDivider}
