@@ -76,11 +76,6 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                                         <span>View more</span>
                                     </button>
                                 </div>
-                                <div
-                                    className={styles.mainResultSectionDivider}
-                                >
-                                    <hr />
-                                </div>
                             </div>
                         </div>
                     </div>
