@@ -6,13 +6,17 @@ export const ResultPanelHeader: React.FC<
     Record<string, unknown>
 > = (): React.ReactElement<Record<string, unknown>> => {
     return (
-        <div className={styles.resultsHeader}>
-            <div className={styles.headerContent}>
-                <span className={styles.contentCategory}>People Directory</span>
-                <label className={styles.contentTypeLabel}>People</label>
-                <select>
-                    <option value="1">People</option>
-                </select>
+        <div className={styles.container}>
+            <div className={styles.content}>
+                <div className={styles.title}>
+                    <span>People Directory</span>
+                </div>
+                <div className={styles.dropdownContainer}>
+                    <label>Default Search</label>
+                    <select>
+                        <option value="1">People</option>
+                    </select>
+                </div>
             </div>
         </div>
     );
