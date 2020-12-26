@@ -3,11 +3,11 @@ import { IDocument } from "../models/IDocument";
 
 import { IPerson } from "../models/IPerson";
 
-import { IntranetResultItem } from "./IntranetResultItem";
 import { ResultsNavPanel } from "./ResultsNavPanel";
 import { ResultPanelHeader } from "./ResultPanelHeader";
 import { PeopleResults } from "./PeopleResults";
 import { DocumentResults } from "./DocumentResults";
+import { IntranetResults } from "./IntranetResults";
 
 import styles from "./SearchResults.module.scss";
 import { IIntranetResult } from "../models/IIntranetResult";
@@ -66,29 +66,20 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                             </div>
                         </div>
                         <div className={styles.mainResultSection}>
-                            <div className={styles.innerContainer}>
-                                <div>
-                                    <span>Intranet Results</span>
-                                </div>
-                                {intranetResults &&
-                                intranetResults.length > 0 ? (
-                                    intranetResults.map((intranetResult) => (
-                                        <IntranetResultItem
-                                            intranetResult={intranetResult}
-                                        />
-                                    ))
-                                ) : (
-                                    <div>No Results</div>
-                                )}
-                            </div>
-                            <div className={styles.viewMoreButtonContainer}>
-                                <div>
+                            <div className={styles.mainResultSectionContent}>
+                                <IntranetResults results={intranetResults} />
+                                <div className={styles.viewMoreButtonContainer}>
                                     <button
                                         type="button"
                                         className={styles.viewMoreButton}
                                     >
-                                        View More
+                                        <span>View more</span>
                                     </button>
+                                </div>
+                                <div
+                                    className={styles.mainResultSectionDivider}
+                                >
+                                    <hr />
                                 </div>
                             </div>
                         </div>
