@@ -24,7 +24,13 @@ export interface ISearchResultsProps {
 const SearchResults: React.FC<ISearchResultsProps> = (
     props: ISearchResultsProps
 ) => {
-    const { peopleResults, documentResults, intranetResults, webServerRelativeUrl, currentSearchTerm } = props;
+    const {
+        peopleResults,
+        documentResults,
+        intranetResults,
+        webServerRelativeUrl,
+        currentSearchTerm
+    } = props;
 
     return (
         <div className={styles.container}>
@@ -77,12 +83,17 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                             <div className={styles.mainResultSectionContent}>
                                 <IntranetResults results={intranetResults} />
                                 <div className={styles.viewMoreButtonContainer}>
-                                    <button
-                                        type="button"
-                                        className={styles.viewMoreButton}
+                                    <a
+                                        href={`${webServerRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=intranet&k=${currentSearchTerm}`}
+                                        target="_blank"
                                     >
-                                        <span>View more</span>
-                                    </button>
+                                        <button
+                                            type="button"
+                                            className={styles.viewMoreButton}
+                                        >
+                                            <span>View more</span>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
