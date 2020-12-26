@@ -20,7 +20,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
             {({ appContext }) => (
                 <div className={styles.card}>
                     <a
-                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileSiteRelativeUrl}?id=${person.ngeEmail}`}
+                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=${person.ngeEmail}`}
                         target="_blank"
                     >
                         <NgePortrait
@@ -31,7 +31,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                     <div className={styles.dataContainer}>
                         <div className={styles.nameAndTitleContainer}>
                             <a
-                                href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileSiteRelativeUrl}?id=${person.ngeEmail}`}
+                                href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=${person.ngeEmail}`}
                                 target="_blank"
                             >
                                 <div className={styles.name}>
@@ -54,10 +54,13 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                                 </span>
                             </div>
                             <div className={styles.office}>
-                                <label htmlFor="">Office:</label>{" "}
-                                <span className={styles.name}>
-                                    {person.officeLocation}
-                                </span>
+                                <label>Office:</label>{" "}
+                                <a
+                                    href={`${appContext.pageContext.web.serverRelativeUrl}${config.floorPlanWebRelativeUrl}?id=${person.officeLocation}`}
+                                    target="_blank"
+                                >
+                                    <span>{person.officeLocation}</span>
+                                </a>
                             </div>
                         </div>
                     </div>

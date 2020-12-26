@@ -5,5 +5,6 @@ export const config = {
   maxPeopleResults: 8,
   maxDocumentResults: 5,
   maxIntranetResults: 5,
-  profileSiteRelativeUrl: '/sitepages/profile.aspx'
+  profileWebRelativeUrl: '/sitepages/profile.aspx',
+  floorPlanWebRelativeUrl: '/sitepages/floorplan.aspx'
 };
