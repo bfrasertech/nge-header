@@ -52,6 +52,12 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                                 <span className={styles.name}>
                                     {person.ngeAssistant}
                                 </span>
+                                <a
+                                    href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=`}
+                                    target="_blank"
+                                >
+                                    <span>{person?.ngeAssistantPhone?.substring(person?.ngeAssistantPhone?.length - 4)}</span>
+                                </a>
                             </div>
                             <div className={styles.office}>
                                 <label>Office:</label>{" "}
