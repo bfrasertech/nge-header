@@ -12,7 +12,7 @@ export const searchPeople = async (searchTerm: string, context: ApplicationCusto
         'content-type': 'application/json',
         'accept': 'application/json'
       },
-      body: JSON.stringify({searchTerm: searchTerm, maxResults: 8})
+      body: JSON.stringify({searchTerm: searchTerm, maxResults: config.maxPeopleResults})
     };
 
     const uri = `${config.baseApiEndpoint}/api/people/search`;
