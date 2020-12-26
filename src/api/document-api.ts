@@ -10,7 +10,7 @@ const mockDocuments: IDocument[] = [];
 
 export const searchDocuments = async (searchTerm: string, context: ApplicationCustomizerContext): Promise<IDocument[]> => {
   if (mockDocuments.length === 0) {
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= config.maxDocumentResults; i++) {
       mockDocuments.push({
         id: i.toString(),
         name: `Document Name ${i.toString()}`,
