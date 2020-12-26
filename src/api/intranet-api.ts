@@ -28,7 +28,7 @@ export const searchIntranet = async (searchTerm: string, context: ApplicationCus
     const data = await response.json();
 
     if (response.ok) {
-      return data.PrimaryQueryResult.RelevantResults.Table.Rows.map((spResult) => mapSPResultToIntranetResult(spResult));
+      return data?.PrimaryQueryResult?.RelevantResults?.Table?.Rows?.map((spResult) => mapSPResultToIntranetResult(spResult));
     } else {
       return Promise.reject(data);
     }
