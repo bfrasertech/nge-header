@@ -4,8 +4,6 @@ import { ApplicationCustomizerContext } from '@microsoft/sp-application-base';
 import { IIntranetResult } from '../models/IIntranetResult';
 import { config } from '../config';
 
-const SEARCH_ROW_LIMIT = 20;
-
 export const searchIntranet = async (searchTerm: string, context: ApplicationCustomizerContext): Promise<IIntranetResult[]> => {
   const searchUrl = `${context.pageContext.web.absoluteUrl}/_api/search/postquery`;
 
@@ -14,7 +12,7 @@ export const searchIntranet = async (searchTerm: string, context: ApplicationCus
       Querytext: searchTerm,
       ClientType: 'ContentSearchRegular',
       SelectProperties: ['Title'],
-      RowLimit: SEARCH_ROW_LIMIT
+      RowLimit: config.maxIntranetResults
     }
   };
 
