@@ -2,8 +2,8 @@ import * as React from "react";
 import { NgePortrait } from "nge-library";
 
 import { HeaderContext } from "../HeaderContext";
-
 import { IPerson } from "../models/IPerson";
+import { config } from "../config";
 import styles from "./PersonCard.module.scss";
 
 export interface IPersonCardProps {
@@ -19,7 +19,10 @@ export const PersonCard: React.FC<IPersonCardProps> = (
         <HeaderContext.Consumer>
             {({ appContext }) => (
                 <div className={styles.card}>
-                    <a href={`#`} target="_blank">
+                    <a
+                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileSiteRelativeUrl}?id=${person.ngeEmail}`}
+                        target="_blank"
+                    >
                         <NgePortrait
                             context={appContext}
                             loginName={person.ngeEmail}
@@ -27,9 +30,14 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                     </a>
                     <div className={styles.dataContainer}>
                         <div className={styles.nameAndTitleContainer}>
-                            <div className={styles.name}>
-                                <span>{person.displayName}</span>
-                            </div>
+                            <a
+                                href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileSiteRelativeUrl}?id=${person.ngeEmail}`}
+                                target="_blank"
+                            >
+                                <div className={styles.name}>
+                                    <span>{person.displayName}</span>
+                                </div>
+                            </a>
                             <div className={styles.jobTitle}>
                                 <span>{person.jobTitle}</span>
                             </div>

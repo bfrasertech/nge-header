@@ -4,5 +4,6 @@ export const config = {
   searchDebounceDelay: 250,
   maxPeopleResults: 8,
   maxDocumentResults: 5,
-  maxIntranetResults: 5
+  maxIntranetResults: 5,
+  profileSiteRelativeUrl: '/sitepages/profile.aspx'
 };
