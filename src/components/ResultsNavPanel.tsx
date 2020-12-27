@@ -8,12 +8,13 @@ import styles from "./ResultsNavPanel.module.scss";
 export interface IResultsNavPanelProps {
     clientResults: IClient[];
     matterResults: IMatter[];
+    currentSearchTerm: string;
 }
 
 export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
     props: IResultsNavPanelProps
 ) => {
-    const { clientResults, matterResults } = props;
+    const { clientResults, matterResults, currentSearchTerm } = props;
 
     return (
         <HeaderContext.Consumer>
@@ -98,12 +99,17 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             )}
                         </div>
                         <div className={styles.viewMoreButtonContainer}>
-                            <button
-                                type="button"
-                                className={styles.viewMoreButton}
+                            <a
+                                href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=client&k=${currentSearchTerm}`}
+                                target="_blank"
                             >
-                                View More
-                            </button>
+                                <button
+                                    type="button"
+                                    className={styles.viewMoreButton}
+                                >
+                                    View More
+                                </button>
+                            </a>
                         </div>
                         <div className={styles.navSectionDivider}>
                             <hr />
@@ -130,12 +136,17 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             )}
                         </div>
                         <div className={styles.viewMoreButtonContainer}>
-                            <button
-                                type="button"
-                                className={styles.viewMoreButton}
+                            <a
+                                href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=matter&k=${currentSearchTerm}`}
+                                target="_blank"
                             >
-                                View More
-                            </button>
+                                <button
+                                    type="button"
+                                    className={styles.viewMoreButton}
+                                >
+                                    View More
+                                </button>
+                            </a>
                         </div>
                         <div className={styles.navSectionDivider}>
                             <hr />

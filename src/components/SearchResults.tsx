@@ -107,6 +107,7 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                     <ResultsNavPanel
                         clientResults={clientResults}
                         matterResults={matterResults}
+                        currentSearchTerm={currentSearchTerm}
                     />
                 </div>
             </div>
