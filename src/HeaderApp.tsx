@@ -4,6 +4,7 @@ import { ApplicationCustomizerContext } from "@microsoft/sp-application-base";
 
 import {HeaderContext} from './HeaderContext';
 import GuidedSearch from "./components/GuidedSearch";
+import { Weather } from "./components/Weather";
 
 import styles from "./HeaderApp.module.scss";
 
@@ -37,6 +38,7 @@ export default class HeaderApp extends React.Component<
                             initialText="search people, clients, matters, and documents..."
                             context={this.props.context}
                         />
+                        <Weather />
                     </HeaderContext.Provider>
                 </QueryClientProvider>
             </div>

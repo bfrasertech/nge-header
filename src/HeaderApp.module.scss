@@ -1,20 +1,11 @@
-// @font-face {
-//   font-family: 'RobotoRegular';
-//   src: url('./fonts//Roboto-Regular.ttf') format('truetype');
-// } 
+@import "./global-vars.module.scss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-// .guidedSearchContainer{
-//   width: 100%;
-//   font-family: 'RobotoRegular';
-//   font-size: 15px;
-// }
-@import './global-vars.module.scss';
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-
-.headerContainer{
-  width: 100%;
-  font-family: 'Roboto';
-  font-size: 15px;
-  color: $gunmetal;
+.headerContainer {
+    width: 100%;
+    font-family: "Roboto";
+    font-size: 15px;
+    color: $gunmetal;
+    background-color: $black;
+    display: flex;
 }

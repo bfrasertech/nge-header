@@ -1,0 +1,16 @@
+@import "../global-vars.module.scss";
+
+.container {
+    width: 100%;
+    font-family: "Roboto";
+    font-size: 12px;
+    height: 18px;
+    color: $white;
+    line-height: 1.5;
+    background-color: $black;
+    display: flex;
+    margin: 2px 15px 2px 0;
+}
+.day {
+    width: 32px;
+}
