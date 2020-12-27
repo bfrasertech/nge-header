@@ -26,52 +26,82 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                         </div>
                         <div className={styles.navSectionMain}>
                             <div className={styles.buttonContainer}>
-                                <button
-                                    type="button"
-                                    className={styles.resultsNavButton}
+                                <a
+                                    href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=people&k=${currentSearchTerm}`}
+                                    target="_blank"
                                 >
-                                    People Directory
-                                </button>
+                                    <button
+                                        type="button"
+                                        className={styles.resultsNavButton}
+                                    >
+                                        People Directory
+                                    </button>
+                                </a>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <button
-                                    type="button"
-                                    className={styles.resultsNavButton}
+                                <a
+                                    href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=intranet&k=${currentSearchTerm}`}
+                                    target="_blank"
                                 >
-                                    Intranet Content
-                                </button>
+                                    <button
+                                        type="button"
+                                        className={styles.resultsNavButton}
+                                    >
+                                        Intranet Content
+                                    </button>
+                                </a>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <button
-                                    type="button"
-                                    className={styles.resultsNavButton}
+                                <a
+                                    href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=client&k=${currentSearchTerm}`}
+                                    target="_blank"
                                 >
-                                    Clients
-                                </button>
+                                    <button
+                                        type="button"
+                                        className={styles.resultsNavButton}
+                                    >
+                                        Clients
+                                    </button>
+                                </a>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <button
-                                    type="button"
-                                    className={styles.resultsNavButton}
+                                <a
+                                    href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=matter&k=${currentSearchTerm}`}
+                                    target="_blank"
                                 >
-                                    Matters
-                                </button>
+                                    <button
+                                        type="button"
+                                        className={styles.resultsNavButton}
+                                    >
+                                        Matters
+                                    </button>
+                                </a>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <button
-                                    type="button"
-                                    className={styles.resultsNavButton}
+                                <a
+                                    href={`#`}
+                                    target="_blank"
                                 >
-                                    Documents
-                                </button>
+                                    <button
+                                        type="button"
+                                        className={styles.resultsNavButton}
+                                    >
+                                        Documents
+                                    </button>
+                                </a>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <button
-                                    type="button"
-                                    className={styles.resultsNavButton}
+                                <a
+                                    href={`#`}
+                                    target="_blank"
                                 >
-                                    CRM Contacts
-                                </button>
+                                    <button
+                                        type="button"
+                                        className={styles.resultsNavButton}
+                                    >
+                                        CRM Contacts
+                                    </button>
+                                </a>
                             </div>
                         </div>
                         <div className={styles.navSectionDivider}>
