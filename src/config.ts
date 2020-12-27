@@ -9,5 +9,7 @@ export const config = {
   maxIntranetResults: 5,
   profileWebRelativeUrl: '/sitepages/profile.aspx',
   floorPlanWebRelativeUrl: '/sitepages/floorplan.aspx',
-  advancedSearchWebRelativeUrl: '/sitepages/advancedsearch.aspx'
+  advancedSearchWebRelativeUrl: '/sitepages/advancedsearch.aspx',
+  matterWebRelativeUrl: '/sitepages/matter.aspx',
+  clientWebRelativeUrl: '/sitepages/client.aspx',
 };
