@@ -1,11 +1,18 @@
 import * as React from "react";
+import { IClient } from "../models/IClient";
+import { IMatter } from "../models/IMatter";
 import styles from "./ResultsNavPanel.module.scss";
 
-export interface IResultsNavPanelProps {}
+export interface IResultsNavPanelProps {
+    clientResults: IClient[];
+    matterResults: IMatter[];
+}
 
 export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
     props: IResultsNavPanelProps
 ) => {
+    const { clientResults, matterResults } = props;
+
     return (
         <div className={styles.resultNavPanel}>
             <div className={styles.navSection}>
@@ -69,27 +76,18 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
             <div className={styles.navSection}>
                 <div className={styles.navSectionHeader}>Client Lookup:</div>
                 <div className={styles.navSectionMain}>
-                    <div className={styles.resultText}>
-                        <span>Jones & Co. (1233)</span>
-                    </div>
-                    <div className={styles.resultText}>
-                        <span>Jones & Co. (1233)</span>
-                    </div>
-                    <div className={styles.resultText}>
-                        <span>Jones & Co. (1233)</span>
-                    </div>
-                    <div className={styles.resultText}>
-                        <span>Jones & Co. (1233)</span>
-                    </div>
-                    <div className={styles.resultText}>
-                        <span>Jones & Co. (1233)</span>
-                    </div>
+                    {clientResults && clientResults.length > 0 ? (
+                        clientResults.map((client) => (
+                            <div className={styles.resultText}>
+                                <span>{`${client.clientName} (${client.clientNumber})`}</span>
+                            </div>
+                        ))
+                    ) : (
+                        <div>No Data</div>
+                    )}
                 </div>
                 <div className={styles.viewMoreButtonContainer}>
-                    <button
-                        type="button"
-                        className={styles.viewMoreButton}
-                    >
+                    <button type="button" className={styles.viewMoreButton}>
                         View More
                     </button>
                 </div>
@@ -100,27 +98,18 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
             <div className={styles.navSection}>
                 <div className={styles.navSectionHeader}>Matter Lookup:</div>
                 <div className={styles.navSectionMain}>
-                    <div className={styles.resultText}>
-                        <span>Smith vs. Jones (1233.0001)</span>
-                    </div>
-                    <div className={styles.resultText}>
-                        <span>Smith vs. Jones (1233.0001)</span>
-                    </div>
-                    <div className={styles.resultText}>
-                        <span>Smith vs. Jones (1233.0001)</span>
-                    </div>
-                    <div className={styles.resultText}>
-                        <span>Smith vs. Jones (1233.0001)</span>
-                    </div>
-                    <div className={styles.resultText}>
-                        <span>Smith vs. Jones (1233.0001)</span>
-                    </div>
+                    {matterResults && matterResults.length > 0 ? (
+                        matterResults.map((matter) => (
+                            <div className={styles.resultText}>
+                                <span>{`${matter.matterName} (${matter.matterNumber})`}</span>
+                            </div>
+                        ))
+                    ) : (
+                        <div>No Data</div>
+                    )}
                 </div>
                 <div className={styles.viewMoreButtonContainer}>
-                    <button
-                        type="button"
-                        className={styles.viewMoreButton}
-                    >
+                    <button type="button" className={styles.viewMoreButton}>
                         View More
                     </button>
                 </div>

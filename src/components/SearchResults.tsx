@@ -1,14 +1,16 @@
 import * as React from "react";
-import { IDocument } from "../models/IDocument";
 
+import { IDocument } from "../models/IDocument";
 import { IPerson } from "../models/IPerson";
+import { IIntranetResult } from "../models/IIntranetResult";
+import { IClient } from "../models/IClient";
+import { IMatter } from "../models/IMatter";
 
 import { ResultsNavPanel } from "./ResultsNavPanel";
 import { ResultPanelHeader } from "./ResultPanelHeader";
 import { PeopleResults } from "./PeopleResults";
 import { DocumentResults } from "./DocumentResults";
 import { IntranetResults } from "./IntranetResults";
-import { IIntranetResult } from "../models/IIntranetResult";
 import { config } from "../config";
 
 import styles from "./SearchResults.module.scss";
@@ -17,6 +19,8 @@ export interface ISearchResultsProps {
     peopleResults: IPerson[];
     documentResults: IDocument[];
     intranetResults: IIntranetResult[];
+    clientResults: IClient[];
+    matterResults: IMatter[];
     webServerRelativeUrl: string;
     currentSearchTerm: string;
 }
@@ -28,6 +32,8 @@ const SearchResults: React.FC<ISearchResultsProps> = (
         peopleResults,
         documentResults,
         intranetResults,
+        clientResults,
+        matterResults,
         webServerRelativeUrl,
         currentSearchTerm
     } = props;
@@ -98,7 +104,10 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                             </div>
                         </div>
                     </div>
-                    <ResultsNavPanel />
+                    <ResultsNavPanel
+                        clientResults={clientResults}
+                        matterResults={matterResults}
+                    />
                 </div>
             </div>
         </div>
