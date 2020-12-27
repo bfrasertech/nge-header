@@ -13,7 +13,7 @@ const formatHighlighted = (result: string): { __html: string } => {
 
     let res = result.replace(highlightStartRegex, `<span class="${styles.highlightedContent}">`);
     res = res.replace(highlightEndRegex, '</span>');
-    res = res.replace("<ddd/>", "...");
+    res = res.replace("<ddd/>", "&#8230");
     return { __html: res };
 };
 
