@@ -3,6 +3,8 @@ export const config = {
   baseApiEndpoint: 'https://ngeaccess.azurewebsites.net',
   searchDebounceDelay: 250,
   maxPeopleResults: 8,
+  maxClientResults: 5,
+  maxMatterResults: 5,
   maxDocumentResults: 5,
   maxIntranetResults: 5,
   profileWebRelativeUrl: '/sitepages/profile.aspx',
