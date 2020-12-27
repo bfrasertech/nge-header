@@ -7,6 +7,16 @@ export interface IIntranetResultItemProps {
     intranetResult: IIntranetResult;
 }
 
+const formatHighlighted = (result: string): { __html: string } => {
+    const highlightStartRegex = /\<c0\>/g;
+    const highlightEndRegex = /\<\/c0\>/g;
+
+    let res = result.replace(highlightStartRegex, `<span class="${styles.highlightedContent}">`);
+    res = res.replace(highlightEndRegex, '</span>');
+    res = res.replace("<ddd/>", "...");
+    return { __html: res };
+};
+
 export const IntranetResultItem: React.FC<IIntranetResultItemProps> = (
     props: IIntranetResultItemProps
 ): React.ReactElement<IIntranetResultItemProps> => {
@@ -15,9 +25,13 @@ export const IntranetResultItem: React.FC<IIntranetResultItemProps> = (
     return (
         <div className={styles.container}>
             <div>
-                <span>
-                    {intranetResult.description}
-                </span>
+                <a href={`${intranetResult.path}`} target="_blank">
+                    <span
+                        dangerouslySetInnerHTML={formatHighlighted(
+                            intranetResult.hitHighlightedSummary
+                        )}
+                    ></span>
+                </a>
             </div>
         </div>
     );

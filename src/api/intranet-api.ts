@@ -11,8 +11,9 @@ export const searchIntranet = async (searchTerm: string, context: ApplicationCus
     request: {
       Querytext: searchTerm,
       ClientType: 'ContentSearchRegular',
-      SelectProperties: ['Title'],
-      RowLimit: config.maxIntranetResults
+      SelectProperties: ['Title', 'Description', 'Path', 'HitHighlightedSummary', 'HitHighlightedProperties'],
+      RowLimit: config.maxIntranetResults,
+      DesiredSnippetLength: 80
     }
   };
 
@@ -38,17 +39,34 @@ export const searchIntranet = async (searchTerm: string, context: ApplicationCus
 const mapSPResultToIntranetResult = (spResult: any): IIntranetResult => {
   let result: IIntranetResult = {
     id: 0,
-    description: ''
+    description: '',
+    hitHighlightedSummary: '',
+    path: '',
+    title: ''
   };
 
   spResult.Cells.forEach(cell => {
-    if (cell.Key === 'Title') {
+
+    if (cell.Key === 'Description') {
       result.description = cell.Value;
+    }
+
+    if (cell.Key === 'HitHighlightedSummary') {
+      result.hitHighlightedSummary = cell.Value;
     }
 
     if (cell.Key === 'ListItemID') {
       result.id = cell.Value;
     }
+
+    if (cell.Key === 'Path') {
+      result.path = cell.Value;
+    }
+
+    if (cell.Key === 'Title') {
+      result.title = cell.Value;
+    }
+
   });
 
   return result;

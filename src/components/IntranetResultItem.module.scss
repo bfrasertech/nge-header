@@ -3,12 +3,16 @@
 .container {
     width: 100%;
     margin: 20px 0 0 0;
-    .linkButton {
-        color: $deepTurquoise;
-        font-size: 15px;
-    }
-    & span {
+    font-size: 15px;
+    color: $black;
+    & a {
+        text-decoration: none;
         font-size: 15px;
         color: $black;
+    }
+    .highlightedContent {
+        color: $deepTurquoise;
+        font-size: 15px;
+        font-weight: 500;
     }
 }
