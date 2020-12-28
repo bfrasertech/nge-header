@@ -87,20 +87,33 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                         </div>
                         <div className={styles.mainResultSection}>
                             <div className={styles.mainResultSectionContent}>
-                                <IntranetResults results={intranetResults} />
-                                <div className={styles.viewMoreButtonContainer}>
-                                    <a
-                                        href={`${webServerRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=intranet&k=${currentSearchTerm}`}
-                                        target="_blank"
-                                    >
-                                        <button
-                                            type="button"
-                                            className={styles.viewMoreButton}
+                                {intranetResults &&
+                                intranetResults.length > 0 ? (
+                                    <>
+                                        <IntranetResults
+                                            results={intranetResults}
+                                        />
+                                        <div
+                                            className={
+                                                styles.viewMoreButtonContainer
+                                            }
                                         >
-                                            <span>View more</span>
-                                        </button>
-                                    </a>
-                                </div>
+                                            <a
+                                                href={`${webServerRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=intranet&k=${currentSearchTerm}`}
+                                                target="_blank"
+                                            >
+                                                <button
+                                                    type="button"
+                                                    className={
+                                                        styles.viewMoreButton
+                                                    }
+                                                >
+                                                    <span>View more</span>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </>
+                                ) : null}
                             </div>
                         </div>
                     </div>

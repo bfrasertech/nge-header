@@ -18,13 +18,9 @@ export const IntranetResults: React.FC<IIntranetResultsProps> = (
             <div className={styles.header}>
                 <span>Intranet Results</span>
             </div>
-            {results && results.length > 0 ? (
-                results.map((intranetResult) => (
-                    <IntranetResultItem intranetResult={intranetResult} />
-                ))
-            ) : (
-                <div>No Results</div>
-            )}
+            {results.map((intranetResult) => (
+                <IntranetResultItem intranetResult={intranetResult} />
+            ))}
         </div>
     );
 };
