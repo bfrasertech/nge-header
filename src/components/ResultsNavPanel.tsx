@@ -140,41 +140,41 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                         ) : null}
                     </div>
                     <div className={styles.navSection}>
-                        <div className={styles.navSectionHeader}>
-                            Matter Lookup:
-                        </div>
-                        <div className={styles.navSectionMain}>
-                            {matterResults && matterResults.length > 0 ? (
-                                matterResults.map((matter) => (
+                        {matterResults && matterResults.length > 0 ? (
+                            <>
+                                <div className={styles.navSectionHeader}>
+                                    Matter Lookup:
+                                </div>
+                                <div className={styles.navSectionMain}>
+                                    {matterResults.map((matter) => (
+                                        <a
+                                            href={`${appContext.pageContext.web.serverRelativeUrl}${config.matterWebRelativeUrl}?id=${matter.matterNumber}`}
+                                            target="_blank"
+                                        >
+                                            <div className={styles.resultText}>
+                                                <span>{`${matter.matterName} (${matter.matterNumber})`}</span>
+                                            </div>
+                                        </a>
+                                    ))}
+                                </div>
+                                <div className={styles.viewMoreButtonContainer}>
                                     <a
-                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.matterWebRelativeUrl}?id=${matter.matterNumber}`}
+                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=matter&k=${currentSearchTerm}`}
                                         target="_blank"
                                     >
-                                        <div className={styles.resultText}>
-                                            <span>{`${matter.matterName} (${matter.matterNumber})`}</span>
-                                        </div>
+                                        <button
+                                            type="button"
+                                            className={styles.viewMoreButton}
+                                        >
+                                            View More
+                                        </button>
                                     </a>
-                                ))
-                            ) : (
-                                <div>No Data</div>
-                            )}
-                        </div>
-                        <div className={styles.viewMoreButtonContainer}>
-                            <a
-                                href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=matter&k=${currentSearchTerm}`}
-                                target="_blank"
-                            >
-                                <button
-                                    type="button"
-                                    className={styles.viewMoreButton}
-                                >
-                                    View More
-                                </button>
-                            </a>
-                        </div>
-                        <div className={styles.navSectionDivider}>
-                            <hr />
-                        </div>
+                                </div>
+                                <div className={styles.navSectionDivider}>
+                                    <hr />
+                                </div>
+                            </>
+                        ) : null}
                     </div>
                 </div>
             )}
