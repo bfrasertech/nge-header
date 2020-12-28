@@ -69,20 +69,35 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                         </div>
                         <div className={styles.mainResultSection}>
                             <div className={styles.mainResultSectionContent}>
-                                <DocumentResults results={documentResults} />
-                                <div className={styles.viewMoreButtonContainer}>
-                                    <button
-                                        type="button"
-                                        className={styles.viewMoreButton}
-                                    >
-                                        <span>View more</span>
-                                    </button>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionDivider}
-                                >
-                                    <hr />
-                                </div>
+                                {documentResults &&
+                                documentResults.length > 0 ? (
+                                    <>
+                                        <DocumentResults
+                                            results={documentResults}
+                                        />
+                                        <div
+                                            className={
+                                                styles.viewMoreButtonContainer
+                                            }
+                                        >
+                                            <button
+                                                type="button"
+                                                className={
+                                                    styles.viewMoreButton
+                                                }
+                                            >
+                                                <span>View more</span>
+                                            </button>
+                                        </div>
+                                        <div
+                                            className={
+                                                styles.mainResultSectionDivider
+                                            }
+                                        >
+                                            <hr />
+                                        </div>
+                                    </>
+                                ) : null}
                             </div>
                         </div>
                         <div className={styles.mainResultSection}>

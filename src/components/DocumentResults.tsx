@@ -18,13 +18,9 @@ export const DocumentResults: React.FC<IDocumentResultsProps> = (
             <div className={styles.header}>
                 <span>Document Results</span>
             </div>
-            {results && results.length > 0 ? (
-                results.map((document: IDocument) => (
-                    <DocumentResultItem document={document} />
-                ))
-            ) : (
-                <div>No Results</div>
-            )}
+            {results.map((document: IDocument) => (
+                <DocumentResultItem document={document} />
+            ))}
         </div>
     );
 };
