@@ -46,25 +46,39 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                     <div className={styles.mainResultPanel}>
                         <div className={styles.mainResultSection}>
                             <div className={styles.mainResultSectionContent}>
-                                <PeopleResults results={peopleResults} />
-                                <div className={styles.viewMoreButtonContainer}>
-                                    <a
-                                        href={`${webServerRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=people&k=${currentSearchTerm}`}
-                                        target="_blank"
-                                    >
-                                        <button
-                                            type="button"
-                                            className={styles.viewMoreButton}
+                                {peopleResults && peopleResults.length > 0 ? (
+                                    <>
+                                        <PeopleResults
+                                            results={peopleResults}
+                                        />
+                                        <div
+                                            className={
+                                                styles.viewMoreButtonContainer
+                                            }
                                         >
-                                            <span>View more</span>
-                                        </button>
-                                    </a>
-                                </div>
-                                <div
-                                    className={styles.mainResultSectionDivider}
-                                >
-                                    <hr />
-                                </div>
+                                            <a
+                                                href={`${webServerRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=people&k=${currentSearchTerm}`}
+                                                target="_blank"
+                                            >
+                                                <button
+                                                    type="button"
+                                                    className={
+                                                        styles.viewMoreButton
+                                                    }
+                                                >
+                                                    <span>View more</span>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div
+                                            className={
+                                                styles.mainResultSectionDivider
+                                            }
+                                        >
+                                            <hr />
+                                        </div>
+                                    </>
+                                ) : null}
                             </div>
                         </div>
                         <div className={styles.mainResultSection}>
