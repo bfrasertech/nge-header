@@ -78,10 +78,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 </a>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <a
-                                    href={`#`}
-                                    target="_blank"
-                                >
+                                <a href={`#`} target="_blank">
                                     <button
                                         type="button"
                                         className={styles.resultsNavButton}
@@ -91,10 +88,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 </a>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <a
-                                    href={`#`}
-                                    target="_blank"
-                                >
+                                <a href={`#`} target="_blank">
                                     <button
                                         type="button"
                                         className={styles.resultsNavButton}
@@ -109,41 +103,41 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                         </div>
                     </div>
                     <div className={styles.navSection}>
-                        <div className={styles.navSectionHeader}>
-                            Client Lookup:
-                        </div>
-                        <div className={styles.navSectionMain}>
-                            {clientResults && clientResults.length > 0 ? (
-                                clientResults.map((client) => (
+                        {clientResults && clientResults.length > 0 ? (
+                            <>
+                                <div className={styles.navSectionHeader}>
+                                    Client Lookup:
+                                </div>
+                                <div className={styles.navSectionMain}>
+                                    {clientResults.map((client) => (
+                                        <a
+                                            href={`${appContext.pageContext.web.serverRelativeUrl}${config.clientWebRelativeUrl}?id=${client.clientNumber}`}
+                                            target="_blank"
+                                        >
+                                            <div className={styles.resultText}>
+                                                <span>{`${client.clientName} (${client.clientNumber})`}</span>
+                                            </div>
+                                        </a>
+                                    ))}
+                                </div>
+                                <div className={styles.viewMoreButtonContainer}>
                                     <a
-                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.clientWebRelativeUrl}?id=${client.clientNumber}`}
+                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=client&k=${currentSearchTerm}`}
                                         target="_blank"
                                     >
-                                        <div className={styles.resultText}>
-                                            <span>{`${client.clientName} (${client.clientNumber})`}</span>
-                                        </div>
+                                        <button
+                                            type="button"
+                                            className={styles.viewMoreButton}
+                                        >
+                                            View More
+                                        </button>
                                     </a>
-                                ))
-                            ) : (
-                                <div>No Data</div>
-                            )}
-                        </div>
-                        <div className={styles.viewMoreButtonContainer}>
-                            <a
-                                href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=client&k=${currentSearchTerm}`}
-                                target="_blank"
-                            >
-                                <button
-                                    type="button"
-                                    className={styles.viewMoreButton}
-                                >
-                                    View More
-                                </button>
-                            </a>
-                        </div>
-                        <div className={styles.navSectionDivider}>
-                            <hr />
-                        </div>
+                                </div>
+                                <div className={styles.navSectionDivider}>
+                                    <hr />
+                                </div>
+                            </>
+                        ) : null}
                     </div>
                     <div className={styles.navSection}>
                         <div className={styles.navSectionHeader}>
