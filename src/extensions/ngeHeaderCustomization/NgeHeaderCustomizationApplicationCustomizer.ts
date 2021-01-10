@@ -69,7 +69,7 @@ export default class NgeHeaderCustomizationApplicationCustomizer
       
       const firstChildNode: Node = canvasZones[1].firstChild;
       if (firstChildNode.nodeType === Node.ELEMENT_NODE){
-        (firstChildNode as HTMLElement).style.maxWidth = 'none';
+        (firstChildNode as HTMLElement).style.maxWidth = '1920px';
       }
       this.stylesUpdated = true;
       return true;
