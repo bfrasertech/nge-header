@@ -21,7 +21,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                 <div className={styles.card}>
                     <a
                         href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=${person.ngeEmail}`}
-                        target="_blank"
+                        target="_self"
                     >
                         <NgePortrait
                             context={appContext}
@@ -32,7 +32,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                         <div className={styles.nameAndTitleContainer}>
                             <a
                                 href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=${person.ngeEmail}`}
-                                target="_blank"
+                                target="_self"
                             >
                                 <div className={styles.name}>
                                     <span>{person.displayName}</span>
@@ -54,7 +54,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                                 </span>
                                 <a
                                     href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=`}
-                                    target="_blank"
+                                    target="_self"
                                 >
                                     <span>{person?.ngeAssistantPhone?.substring(person?.ngeAssistantPhone?.length - 4)}</span>
                                 </a>
@@ -63,7 +63,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                                 <label>Office:</label>{" "}
                                 <a
                                     href={`${appContext.pageContext.web.serverRelativeUrl}${config.floorPlanWebRelativeUrl}?id=${person.officeLocation}`}
-                                    target="_blank"
+                                    target="_self"
                                 >
                                     <span>{person.officeLocation}</span>
                                 </a>

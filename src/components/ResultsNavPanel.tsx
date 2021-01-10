@@ -28,7 +28,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             <div className={styles.buttonContainer}>
                                 <a
                                     href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=people&k=${currentSearchTerm}`}
-                                    target="_blank"
+                                    target="_self"
                                 >
                                     <button
                                         type="button"
@@ -41,7 +41,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             <div className={styles.buttonContainer}>
                                 <a
                                     href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=intranet&k=${currentSearchTerm}`}
-                                    target="_blank"
+                                    target="_self"
                                 >
                                     <button
                                         type="button"
@@ -54,7 +54,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             <div className={styles.buttonContainer}>
                                 <a
                                     href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=client&k=${currentSearchTerm}`}
-                                    target="_blank"
+                                    target="_self"
                                 >
                                     <button
                                         type="button"
@@ -67,7 +67,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                             <div className={styles.buttonContainer}>
                                 <a
                                     href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=matter&k=${currentSearchTerm}`}
-                                    target="_blank"
+                                    target="_self"
                                 >
                                     <button
                                         type="button"
@@ -78,7 +78,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 </a>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <a href={`#`} target="_blank">
+                                <a href={`#`} target="_self">
                                     <button
                                         type="button"
                                         className={styles.resultsNavButton}
@@ -88,7 +88,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 </a>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <a href={`#`} target="_blank">
+                                <a href={`#`} target="_self">
                                     <button
                                         type="button"
                                         className={styles.resultsNavButton}
@@ -112,7 +112,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                     {clientResults.map((client) => (
                                         <a
                                             href={`${appContext.pageContext.web.serverRelativeUrl}${config.clientWebRelativeUrl}?id=${client.clientNumber}`}
-                                            target="_blank"
+                                            target="_self"
                                         >
                                             <div className={styles.resultText}>
                                                 <span>{`${client.clientName} (${client.clientNumber})`}</span>
@@ -123,7 +123,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 <div className={styles.viewMoreButtonContainer}>
                                     <a
                                         href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=client&k=${currentSearchTerm}`}
-                                        target="_blank"
+                                        target="_self"
                                     >
                                         <button
                                             type="button"
@@ -149,7 +149,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                     {matterResults.map((matter) => (
                                         <a
                                             href={`${appContext.pageContext.web.serverRelativeUrl}${config.matterWebRelativeUrl}?id=${matter.matterNumber}`}
-                                            target="_blank"
+                                            target="_self"
                                         >
                                             <div className={styles.resultText}>
                                                 <span>{`${matter.matterName} (${matter.matterNumber})`}</span>
@@ -160,7 +160,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 <div className={styles.viewMoreButtonContainer}>
                                     <a
                                         href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=matter&k=${currentSearchTerm}`}
-                                        target="_blank"
+                                        target="_self"
                                     >
                                         <button
                                             type="button"

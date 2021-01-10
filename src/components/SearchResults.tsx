@@ -58,7 +58,7 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                                         >
                                             <a
                                                 href={`${webServerRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=people&k=${currentSearchTerm}`}
-                                                target="_blank"
+                                                target="_self"
                                             >
                                                 <button
                                                     type="button"
@@ -129,7 +129,7 @@ const SearchResults: React.FC<ISearchResultsProps> = (
                                         >
                                             <a
                                                 href={`${webServerRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=intranet&k=${currentSearchTerm}`}
-                                                target="_blank"
+                                                target="_self"
                                             >
                                                 <button
                                                     type="button"

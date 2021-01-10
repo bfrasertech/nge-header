@@ -29,7 +29,7 @@ export const IntranetResultItem: React.FC<IIntranetResultItemProps> = (
     return (
         <div className={styles.container}>
             <div>
-                <a href={`${intranetResult.path}`} target="_blank">
+                <a href={`${intranetResult.path}`} target="_self">
                     <span
                         dangerouslySetInnerHTML={formatHighlighted(
                             intranetResult.hitHighlightedSummary
