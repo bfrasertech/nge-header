@@ -152,7 +152,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                             target="_self"
                                         >
                                             <div className={styles.resultText}>
-                                                <span>{`${matter.matterName} (${matter.matterNumber})`}</span>
+                                                <span>{`${matter.matterDesc} (${matter.matterNumber})`}</span>
                                             </div>
                                         </a>
                                     ))}
