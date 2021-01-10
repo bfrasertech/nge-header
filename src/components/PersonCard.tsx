@@ -45,20 +45,34 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                         <div className={styles.otherDetailsContainer}>
                             <div className={styles.phoneNumber}>
                                 <label>Ext:</label>{" "}
-                                <span>{person.ngePhone}</span>
-                            </div>
-                            <div className={styles.assistant}>
-                                <label htmlFor="">Secretary:</label>{" "}
-                                <span className={styles.name}>
-                                    {person.ngeAssistant}
+                                <span>
+                                    #
+                                    {person?.ngePhone?.substring(
+                                        person?.ngePhone?.length - 4
+                                    )}
                                 </span>
-                                <a
-                                    href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=`}
-                                    target="_self"
-                                >
-                                    <span>{person?.ngeAssistantPhone?.substring(person?.ngeAssistantPhone?.length - 4)}</span>
-                                </a>
                             </div>
+                            {person.ngeAssistant ? (
+                                <div className={styles.assistant}>
+                                    <label htmlFor="">Secretary:</label>{" "}
+                                    <span className={styles.name}>
+                                        {person.ngeAssistant}
+                                    </span>
+                                    <a
+                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=`}
+                                        target="_self"
+                                    >
+                                        {person.ngeAssistantPhone ? (
+                                            <span>{" x"}
+                                                {person.ngeAssistantPhone.substring(
+                                                    person.ngeAssistantPhone
+                                                        ?.length - 4
+                                                )}
+                                            </span>
+                                        ) : null}
+                                    </a>
+                                </div>
+                            ) : null}
                             <div className={styles.office}>
                                 <label>Office:</label>{" "}
                                 <a
