@@ -29,7 +29,9 @@ export default class NgeHeaderCustomizationApplicationCustomizer
   extends BaseApplicationCustomizer<INgeHeaderCustomizationApplicationCustomizerProperties> {
 
   private pollAttempts: number = 0;
-  private stylesUpdated: boolean = false;
+  private allPageCustomizationsComplete: boolean = false;
+  private canvasZoneStylingComplete: boolean = false;
+  private pageHeaderRemovalComplete: boolean = false;
 
   @override
   public onInit(): Promise<void> {
@@ -46,7 +48,7 @@ export default class NgeHeaderCustomizationApplicationCustomizer
 
     const pageModeInterval = setInterval(() => {
       this.pollAttempts += 1;
-      if (this.pollAttempts >= MAX_POLLING_ATTEMPTS || (this.updateCanvasZoneStyles())) {
+      if (this.pollAttempts >= MAX_POLLING_ATTEMPTS || (this.applyAllPageCustomizations())) {
         clearInterval(pageModeInterval);
       }
     }, 100);
@@ -58,20 +60,38 @@ export default class NgeHeaderCustomizationApplicationCustomizer
     console.log('dispose');
   }
 
+  private applyAllPageCustomizations(): boolean {
+    this.allPageCustomizationsComplete = this.updateCanvasZoneStyles() && this.hidePageHeader();
+    return this.allPageCustomizationsComplete;
+  }
+
   private updateCanvasZoneStyles(): boolean {
-    if (this.stylesUpdated) return true;
+    if (this.canvasZoneStylingComplete) return true;
 
     const canvasZones: NodeListOf<HTMLElement> = document.querySelectorAll("[data-automation-id='CanvasZone']");
 
     if (canvasZones.length === 2) {
       canvasZones[0].style.backgroundColor = "#53565A";
       canvasZones[1].style.backgroundColor = "#EBEBEB";
-      
+
       const firstChildNode: Node = canvasZones[1].firstChild;
-      if (firstChildNode.nodeType === Node.ELEMENT_NODE){
+      if (firstChildNode.nodeType === Node.ELEMENT_NODE) {
         (firstChildNode as HTMLElement).style.maxWidth = '1920px';
       }
-      this.stylesUpdated = true;
+      this.canvasZoneStylingComplete = true;
+      return true;
+    }
+  }
+
+  private hidePageHeader(): boolean {
+    if (this.pageHeaderRemovalComplete) return true;
+
+    const pageHeader: NodeListOf<HTMLElement> = document.querySelectorAll("[data-automation-id='pageHeader']");
+
+    if (pageHeader.length === 1) {
+      pageHeader[0].style.display = "none";
+
+      this.pageHeaderRemovalComplete = true;
       return true;
     }
   }
