@@ -7,6 +7,7 @@ import { useDocumentSearch } from "../hooks/useDocumentSearch";
 import { useIntranetSearch } from "../hooks/useIntranetSearch";
 import { useClientSearch } from "../hooks/useClientSearch";
 import { useMatterSearch } from "../hooks/useMatterSearch";
+import { useNavigate } from "../hooks/useNavigate";
 
 import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
@@ -34,6 +35,7 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
 
     const handleAdvancedSearch = (currentSearchTerm: string): void => {
         disableClickOutsideBehavior = true;
+        useNavigate(`${context.pageContext.web.serverRelativeUrl}/sitepages/advancedsearch.aspx?k=${currentSearchTerm}`);
     };
 
     const handleSearchInputClick = (): void => {
