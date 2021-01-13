@@ -28,7 +28,7 @@ const GuidedSearch: React.FC<IGuidedSearchProps> = (
 
     let disableClickOutsideBehavior = false;
 
-    const handleSearch = (currentSearchTerm: string): void => {
+    const handleSearch = (): void => {
         setShowResults(true);
         disableClickOutsideBehavior = true;
     };

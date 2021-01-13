@@ -6,7 +6,7 @@ import styles from "./SearchBox.module.scss";
 
 export interface ISearchBoxProps {
     initialText: string;
-    onSearch: (currentSearchTerm: string) => void;
+    onSearch: () => void;
     onAdvancedSearch: (currentSearchTerm: string) => void;
     onSearchInputClick: () => void;
     onSearchTermChange: (searchTerm: string) => void;
@@ -66,7 +66,7 @@ const SearchBox: React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
 
     const handleKeyPress = (evt: React.KeyboardEvent<HTMLInputElement>) => {
         if (evt.key === "Enter") {
-            onSearch(searchTerm);
+            onSearch();
         } else if (searchTerm === initialText) {
             // clear the input and let the onChange event handle the new value
             setSearchTerm("");
@@ -76,7 +76,7 @@ const SearchBox: React.FC<ISearchBoxProps> = (props: ISearchBoxProps) => {
     const handleSearchButtonClick = (
         evt: React.MouseEvent<HTMLButtonElement>
     ) => {
-        onSearch(searchTerm);
+        onSearch();
     };
 
     const handleAdvancedSearchClick = (
