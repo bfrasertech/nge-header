@@ -7,6 +7,7 @@ import GuidedSearch from "./components/GuidedSearch";
 import { Weather } from "./components/Weather";
 
 import styles from "./HeaderApp.module.scss";
+import { SocialMedia } from "./components/SocialMedia";
 
 export interface IHeaderAppProps {
     context: ApplicationCustomizerContext;
@@ -39,6 +40,7 @@ export default class HeaderApp extends React.Component<
                             context={this.props.context}
                         />
                         <Weather />
+                        <SocialMedia />
                     </HeaderContext.Provider>
                 </QueryClientProvider>
             </div>

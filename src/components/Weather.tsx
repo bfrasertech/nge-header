@@ -7,8 +7,10 @@ export const Weather: React.FC<
 > = (): React.ReactElement<Record<string, unknown>> => {
     return (
         <div className={styles.container}>
-            <div className={styles.day}>
-                <span>Today</span>
+            <div className={styles.innerContainer}>
+                <span className={styles.today}>Today</span>
+                <span className={styles.weatherIcon}>icon</span>
+                <span className={styles.temps}>50/32</span>
             </div>
         </div>
     );
