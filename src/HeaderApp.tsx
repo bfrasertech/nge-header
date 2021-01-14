@@ -15,28 +15,19 @@ export interface IHeaderAppProps {
     context: ApplicationCustomizerContext;
 }
 
-export interface IHeaderAppState {
-    showResources: boolean;
-}
+export interface IHeaderAppState {}
 
 const queryClient = new QueryClient({
     defaultOptions: {}
 });
+
 export default class HeaderApp extends React.Component<
     IHeaderAppProps,
     IHeaderAppState
 > {
     constructor(props: IHeaderAppProps) {
         super(props);
-        this.state = {
-            showResources: false
-        };
-    }
-
-    private onHeaderClick = (): void => {
-        this.setState({
-            showResources: !this.state.showResources
-        });
+        this.state = {};
     }
 
     public render(): React.ReactElement<IHeaderAppProps> {
@@ -56,13 +47,8 @@ export default class HeaderApp extends React.Component<
                             <SPShareFeatures />
                         </div>
                         <div className={styles.urgentAnnouncementRow}>
-                            <UrgentAnnouncement onHeaderClick={this.onHeaderClick} />
+                          <UrgentAnnouncement />
                         </div>
-                        {this.state.showResources && (
-                            <div className={styles.urgentAnnouncementRow}>
-                                test
-                            </div>
-                        )}
                     </HeaderContext.Provider>
                 </QueryClientProvider>
             </div>
