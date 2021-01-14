@@ -32,6 +32,7 @@ export default class NgeHeaderCustomizationApplicationCustomizer
   private allPageCustomizationsComplete: boolean = false;
   private canvasZoneStylingComplete: boolean = false;
   private pageHeaderRemovalComplete: boolean = false;
+  private spShareFeaturesMoved: boolean = false;
 
   @override
   public onInit(): Promise<void> {
@@ -61,7 +62,7 @@ export default class NgeHeaderCustomizationApplicationCustomizer
   }
 
   private applyAllPageCustomizations(): boolean {
-    this.allPageCustomizationsComplete = this.updateCanvasZoneStyles() && this.hidePageHeader();
+    this.allPageCustomizationsComplete = this.updateCanvasZoneStyles() && this.hidePageHeader() && this.moveSPShareFeatures();
     return this.allPageCustomizationsComplete;
   }
 
@@ -92,6 +93,19 @@ export default class NgeHeaderCustomizationApplicationCustomizer
       pageHeader[0].style.display = "none";
 
       this.pageHeaderRemovalComplete = true;
+      return true;
+    }
+  }
+
+  private moveSPShareFeatures(): boolean {
+    if (this.spShareFeaturesMoved) return true;
+
+    const actionsWrapper: NodeListOf<HTMLElement> = document.querySelectorAll("[class='actionsWrapper-58']");
+    const target: NodeListOf<HTMLElement> = document.querySelectorAll("[data-automation-id='nge-sp-share']");
+
+    if (actionsWrapper.length === 1 && target.length >= 1) {
+      target[0].appendChild(actionsWrapper[0]);
+      this.spShareFeaturesMoved = true;
       return true;
     }
   }

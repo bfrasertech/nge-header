@@ -8,6 +8,7 @@ import { Weather } from "./components/Weather";
 
 import styles from "./HeaderApp.module.scss";
 import { SocialMedia } from "./components/SocialMedia";
+import { SPShareFeatures } from "./components/SPShareFeatures";
 
 export interface IHeaderAppProps {
     context: ApplicationCustomizerContext;
@@ -41,6 +42,7 @@ export default class HeaderApp extends React.Component<
                         />
                         <Weather />
                         <SocialMedia />
+                        <SPShareFeatures />
                     </HeaderContext.Provider>
                 </QueryClientProvider>
             </div>

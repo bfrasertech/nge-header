@@ -15,16 +15,10 @@
 .innerContainer {
     height: 18px;
     width: 163px;
-    border-right: 1px solid $white;
-}
-.today {
-    width: 30px;
-    margin-right: 15px;
-}
-.weatherIcon {
-    width: 28px;
-    margin-right: 15px;
-}
-.temps {
-    width: 33px;
+    & button {
+        color: $white;
+    }
+    & i {
+        color: $white;
+    }
 }
