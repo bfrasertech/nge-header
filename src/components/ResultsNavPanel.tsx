@@ -16,6 +16,26 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
 ) => {
     const { clientResults, matterResults, currentSearchTerm } = props;
 
+    const buildMatterSearchQuery = (): string => {
+      const digitOnlyRegex = /^\d*$/;
+      const fiveNRegex = /^\d{}5n$/;
+      if (digitOnlyRegex.test(currentSearchTerm) || fiveNRegex.test(currentSearchTerm)){
+        return `matterNumber=${currentSearchTerm}`;
+      }
+
+      return `matterName=${currentSearchTerm}`;
+    };
+
+    const buildClientSearchQuery = (): string => {
+      const digitOnlyRegex = /^\d*$/;
+
+      if (digitOnlyRegex.test(currentSearchTerm)){
+        return `clientNumber=${currentSearchTerm}`;
+      }
+
+      return `clientName=${currentSearchTerm}`;
+    };
+
     return (
         <HeaderContext.Consumer>
             {({ appContext }) => (
@@ -122,7 +142,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 </div>
                                 <div className={styles.viewMoreButtonContainer}>
                                     <a
-                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=client&k=${currentSearchTerm}`}
+                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=client&${buildClientSearchQuery()}`}
                                         target="_self"
                                     >
                                         <button
@@ -159,7 +179,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 </div>
                                 <div className={styles.viewMoreButtonContainer}>
                                     <a
-                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=matter&k=${currentSearchTerm}`}
+                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.advancedSearchWebRelativeUrl}?tab=matter&${buildMatterSearchQuery()}`}
                                         target="_self"
                                     >
                                         <button
