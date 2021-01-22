@@ -20,7 +20,6 @@ export interface IHeaderAppState {}
 const queryClient = new QueryClient({
     defaultOptions: {}
 });
-
 export default class HeaderApp extends React.Component<
     IHeaderAppProps,
     IHeaderAppState
@@ -47,7 +46,7 @@ export default class HeaderApp extends React.Component<
                             <SPShareFeatures />
                         </div>
                         <div className={styles.urgentAnnouncementRow}>
-                          <UrgentAnnouncement />
+                            <UrgentAnnouncement context={this.props.context} />
                         </div>
                     </HeaderContext.Provider>
                 </QueryClientProvider>

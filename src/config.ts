@@ -12,4 +12,5 @@ export const config = {
   advancedSearchWebRelativeUrl: '/sitepages/advancedsearch.aspx',
   matterWebRelativeUrl: '/sitepages/matter.aspx',
   clientWebRelativeUrl: '/sitepages/client.aspx',
+  urgentAlertListId: '1c15d57d-703c-4628-be00-efa67461f33d'
 };
