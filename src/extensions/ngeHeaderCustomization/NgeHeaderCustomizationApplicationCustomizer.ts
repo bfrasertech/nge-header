@@ -8,6 +8,8 @@ import {
   PlaceholderName
 } from '@microsoft/sp-application-base';
 
+import ReactModal from 'react-modal';
+
 import * as strings from 'NgeHeaderCustomizationApplicationCustomizerStrings';
 import HeaderApp, { IHeaderAppProps } from '../../HeaderApp';
 
@@ -44,6 +46,9 @@ export default class NgeHeaderCustomizationApplicationCustomizer
     if (topPlaceholder) {
       const headerAppElement: React.ReactElement<IHeaderAppProps> = React.createElement(HeaderApp);
       headerAppElement.props.context = this.context;
+      
+      ReactModal.setAppElement(topPlaceholder.domElement);
+
       ReactDOM.render(headerAppElement, topPlaceholder.domElement);
     }
 
