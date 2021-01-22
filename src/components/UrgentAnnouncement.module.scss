@@ -4,6 +4,7 @@
     width: 100%;
     height: 110px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: $tomatoRed;
     & p {
@@ -11,7 +12,14 @@
         font-size: 20px;
     }
 }
-
 .innerContainer {
     padding: 0 0 0 64px;
+}
+.closeIconContainer {
+    height: 100%;
+    margin: 15px 15px 0 0;
+}
+.closeIcon {
+    color: $white;
+    cursor: pointer;
 }
