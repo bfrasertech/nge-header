@@ -20,7 +20,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
             {({ appContext }) => (
                 <div className={styles.card}>
                     <a
-                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=${person.ngeEmail}`}
+                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?itemid=${person.ngeEmail}`}
                         target="_self"
                     >
                         <NgePortrait
@@ -31,7 +31,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                     <div className={styles.dataContainer}>
                         <div className={styles.nameAndTitleContainer}>
                             <a
-                                href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=${person.ngeEmail}`}
+                                href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?itemid=${person.ngeEmail}`}
                                 target="_self"
                             >
                                 <div className={styles.name}>
@@ -59,7 +59,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                                         {person.ngeAssistant}
                                     </span>
                                     <a
-                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?id=`}
+                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?itemid=`}
                                         target="_self"
                                     >
                                         {person.ngeAssistantPhone ? (
@@ -76,7 +76,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                             <div className={styles.office}>
                                 <label>Office:</label>{" "}
                                 <a
-                                    href={`${appContext.pageContext.web.serverRelativeUrl}${config.floorPlanWebRelativeUrl}?id=${person.officeLocation}`}
+                                    href={`${appContext.pageContext.web.serverRelativeUrl}${config.floorPlanWebRelativeUrl}?itemid=${person.officeLocation}`}
                                     target="_self"
                                 >
                                     <span>{person.officeLocation}</span>
