@@ -33,6 +33,7 @@ export default class NgeHeaderCustomizationApplicationCustomizer extends BaseApp
     private canvasZoneStylingComplete: boolean = false;
     private pageHeaderRemovalComplete: boolean = false;
     private spShareFeaturesMoved: boolean = false;
+    private searchBoxRemoved: boolean = false;
     private resourceAndFormsOverridden: boolean = false;
     private showResourcesAndForms: boolean = false;
 
@@ -53,7 +54,9 @@ export default class NgeHeaderCustomizationApplicationCustomizer extends BaseApp
                 <HeaderApp
                     context={this.context}
                     showResourceAndForms={this.showResourcesAndForms}
-                    onShowResourceAndFormsClose={this.handleResourceAndFormsClose}
+                    onShowResourceAndFormsClose={
+                        this.handleResourceAndFormsClose
+                    }
                 />
             );
             ReactDOM.render(headerAppElement, this.topPlaceholder.domElement);
@@ -94,6 +97,7 @@ export default class NgeHeaderCustomizationApplicationCustomizer extends BaseApp
         this.allPageCustomizationsComplete =
             this.updateCanvasZoneStyles() &&
             this.hidePageHeader() &&
+            this.removeSearchBox() &&
             this.moveSPShareFeatures() &&
             this.overrideResourceAndFormsLink();
         return this.allPageCustomizationsComplete;
@@ -130,6 +134,18 @@ export default class NgeHeaderCustomizationApplicationCustomizer extends BaseApp
             pageHeader[0].style.display = "none";
 
             this.pageHeaderRemovalComplete = true;
+            return true;
+        }
+    }
+
+    private removeSearchBox(): boolean {
+        if (this.searchBoxRemoved) return true;
+
+        const searchBoxContainer = document.getElementById("O365_SearchBoxContainer_container");
+
+        if (searchBoxContainer) {
+            searchBoxContainer.remove();
+            this.searchBoxRemoved = true;
             return true;
         }
     }
