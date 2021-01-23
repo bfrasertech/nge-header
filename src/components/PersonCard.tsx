@@ -59,7 +59,7 @@ export const PersonCard: React.FC<IPersonCardProps> = (
                                         {person.ngeAssistant}
                                     </span>
                                     <a
-                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?itemid=`}
+                                        href={`${appContext.pageContext.web.serverRelativeUrl}${config.profileWebRelativeUrl}?itemid=${person.ngeAssistantEmail}`}
                                         target="_self"
                                     >
                                         {person.ngeAssistantPhone ? (

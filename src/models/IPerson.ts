@@ -15,4 +15,5 @@ export interface IPerson{
   ngePhoto: string;
   ngeAssistant: string;
   ngeAssistantPhone: string;
+  ngeAssistantEmail: string;
 }
