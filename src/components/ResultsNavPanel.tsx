@@ -131,7 +131,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 <div className={styles.navSectionMain}>
                                     {clientResults.map((client) => (
                                         <a
-                                            href={`${appContext.pageContext.web.serverRelativeUrl}${config.clientWebRelativeUrl}?id=${client.clientNumber}`}
+                                            href={`${appContext.pageContext.web.serverRelativeUrl}${config.clientWebRelativeUrl}?itemid=${client.clientNumber}`}
                                             target="_self"
                                         >
                                             <div className={styles.resultText}>
@@ -168,7 +168,7 @@ export const ResultsNavPanel: React.FC<IResultsNavPanelProps> = (
                                 <div className={styles.navSectionMain}>
                                     {matterResults.map((matter) => (
                                         <a
-                                            href={`${appContext.pageContext.web.serverRelativeUrl}${config.matterWebRelativeUrl}?id=${matter.matterNumber}`}
+                                            href={`${appContext.pageContext.web.serverRelativeUrl}${config.matterWebRelativeUrl}?itemid=${matter.matterNumber}`}
                                             target="_self"
                                         >
                                             <div className={styles.resultText}>
