@@ -21,39 +21,31 @@ export interface IHeaderAppState {}
 const queryClient = new QueryClient({
     defaultOptions: {}
 });
-export default class HeaderApp extends React.Component<
-    IHeaderAppProps,
-    IHeaderAppState
-> {
-    constructor(props: IHeaderAppProps) {
-        super(props);
-        this.state = {};
-    }
+const HeaderApp: React.FC<IHeaderAppProps> = (props: IHeaderAppProps) => {
+    const { context, showResourceAndForms } = props;
 
-    public render(): React.ReactElement<IHeaderAppProps> {
-        console.log(`Show Resources = ${this.props.showResourceAndForms}`);
-        
-        return (
-            <div className={styles.headerContainer}>
-                <QueryClientProvider client={queryClient}>
-                    <HeaderContext.Provider
-                        value={{ appContext: this.props.context }}
-                    >
-                        <div className={styles.guidedSearchRow}>
-                            <GuidedSearch
-                                initialText="search people, clients, matters, and documents..."
-                                context={this.props.context}
-                            />
-                            <Weather />
-                            <SocialMedia />
-                            <SPShareFeatures />
-                        </div>
-                        <div className={styles.urgentAnnouncementRow}>
-                            <UrgentAnnouncement context={this.props.context} />
-                        </div>
-                    </HeaderContext.Provider>
-                </QueryClientProvider>
-            </div>
-        );
-    }
-}
+    console.log(`Show Resources = ${showResourceAndForms}`);
+
+    return (
+        <div className={styles.headerContainer}>
+            <QueryClientProvider client={queryClient}>
+                <HeaderContext.Provider value={{ appContext: context }}>
+                    <div className={styles.guidedSearchRow}>
+                        <GuidedSearch
+                            initialText="search people, clients, matters, and documents..."
+                            context={context}
+                        />
+                        <Weather />
+                        <SocialMedia />
+                        <SPShareFeatures />
+                    </div>
+                    <div className={styles.urgentAnnouncementRow}>
+                        <UrgentAnnouncement context={context} />
+                    </div>
+                </HeaderContext.Provider>
+            </QueryClientProvider>
+        </div>
+    );
+};
+
+export default HeaderApp;
