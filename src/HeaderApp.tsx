@@ -61,7 +61,7 @@ const HeaderApp: React.FC<IHeaderAppProps> = (props: IHeaderAppProps) => {
 
             {showResourceAndForms && (
                 <div ref={resultsAndFormsDialogRef}>
-                    <ResourceAndFormsDialog />
+                    <ResourceAndFormsDialog context={context} />
                 </div>
             )}
         </div>
