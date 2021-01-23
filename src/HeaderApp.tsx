@@ -1,8 +1,8 @@
 import * as React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ApplicationCustomizerContext } from "@microsoft/sp-application-base";
-import ReactModal from "react-modal";
 
+import { useOutsideClick } from "./hooks/useOutsideClick";
 import { HeaderContext } from "./HeaderContext";
 import GuidedSearch from "./components/GuidedSearch";
 import { Weather } from "./components/Weather";
@@ -16,6 +16,7 @@ import { ResourceAndFormsDialog } from "./components/ResourceAndFormsDialog";
 export interface IHeaderAppProps {
     context: ApplicationCustomizerContext;
     showResourceAndForms: boolean;
+    onShowResourceAndFormsClose: () => void;
 }
 
 export interface IHeaderAppState {}
@@ -25,10 +26,20 @@ const queryClient = new QueryClient({
 });
 
 const HeaderApp: React.FC<IHeaderAppProps> = (props: IHeaderAppProps) => {
-    const { context, showResourceAndForms } = props;
+    const {
+        context,
+        showResourceAndForms,
+        onShowResourceAndFormsClose
+    } = props;
+    
+    const resultsAndFormsDialogRef = React.useRef<HTMLDivElement>();
+
+    useOutsideClick(resultsAndFormsDialogRef, () => {
+        onShowResourceAndFormsClose();
+    });
 
     return (
-        <>
+        <div>
             <div className={styles.headerContainer}>
                 <QueryClientProvider client={queryClient}>
                     <HeaderContext.Provider value={{ appContext: context }}>
@@ -47,15 +58,13 @@ const HeaderApp: React.FC<IHeaderAppProps> = (props: IHeaderAppProps) => {
                     </HeaderContext.Provider>
                 </QueryClientProvider>
             </div>
-            <ReactModal
-                isOpen={showResourceAndForms}
-                contentLabel={"Urgent Announcement"}
-                className={styles.resourceAndFormsModal}
-                overlayClassName={styles.resourceAndFormsModalOverlay}
-            >
-                <ResourceAndFormsDialog />
-            </ReactModal>
-        </>
+
+            {showResourceAndForms && (
+                <div ref={resultsAndFormsDialogRef}>
+                    <ResourceAndFormsDialog />
+                </div>
+            )}
+        </div>
     );
 };
 

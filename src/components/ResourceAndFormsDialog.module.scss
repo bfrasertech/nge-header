@@ -3,4 +3,15 @@
 .container {
     font-size: 20px;
     color: $black;
+    position: absolute;
+    inset: 40px;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    height: 575px;
+    z-index: 10;
+    top: 180px;
 }

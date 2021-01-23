@@ -53,6 +53,7 @@ export default class NgeHeaderCustomizationApplicationCustomizer extends BaseApp
                 <HeaderApp
                     context={this.context}
                     showResourceAndForms={this.showResourcesAndForms}
+                    onShowResourceAndFormsClose={this.handleResourceAndFormsClose}
                 />
             );
             ReactDOM.render(headerAppElement, this.topPlaceholder.domElement);
@@ -73,6 +74,20 @@ export default class NgeHeaderCustomizationApplicationCustomizer extends BaseApp
 
     private handleDispose(): void {
         console.log("dispose");
+    }
+
+    private handleResourceAndFormsClose = (): void => {
+        this.showResourcesAndForms = false;
+
+        const headerAppElement: React.ReactElement<IHeaderAppProps> = (
+            <HeaderApp
+                context={this.context}
+                showResourceAndForms={this.showResourcesAndForms}
+                onShowResourceAndFormsClose={this.handleResourceAndFormsClose}
+            />
+        );
+
+        ReactDOM.render(headerAppElement, this.topPlaceholder.domElement);
     }
 
     private applyAllPageCustomizations(): boolean {
@@ -137,20 +152,18 @@ export default class NgeHeaderCustomizationApplicationCustomizer extends BaseApp
     }
 
     private handleResourceAndFormLinkClick = (e: MouseEvent): void => {
-      e.stopPropagation();
-      e.preventDefault();
-      this.showResourcesAndForms = true;
+        e.stopPropagation();
+        e.preventDefault();
+        this.showResourcesAndForms = true;
 
-      const headerAppElement: React.ReactElement<IHeaderAppProps> = (
-          <HeaderApp
-              context={this.context}
-              showResourceAndForms={this.showResourcesAndForms}
-          />
-      );
-      ReactDOM.render(
-          headerAppElement,
-          this.topPlaceholder.domElement
-      );
+        const headerAppElement: React.ReactElement<IHeaderAppProps> = (
+            <HeaderApp
+                context={this.context}
+                showResourceAndForms={this.showResourcesAndForms}
+                onShowResourceAndFormsClose={this.handleResourceAndFormsClose}
+            />
+        );
+        ReactDOM.render(headerAppElement, this.topPlaceholder.domElement);
     }
 
     private overrideResourceAndFormsLink(): boolean {
@@ -161,7 +174,10 @@ export default class NgeHeaderCustomizationApplicationCustomizer extends BaseApp
         );
 
         if (resourceAndFormsAnchors.length > 0) {
-            resourceAndFormsAnchors[0].addEventListener("click", this.handleResourceAndFormLinkClick);
+            resourceAndFormsAnchors[0].addEventListener(
+                "click",
+                this.handleResourceAndFormLinkClick
+            );
             this.resourceAndFormsOverridden = true;
             return true;
         }
