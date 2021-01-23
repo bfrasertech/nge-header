@@ -13,6 +13,7 @@ import { UrgentAnnouncement } from "./components/UrgentAnnouncement";
 
 export interface IHeaderAppProps {
     context: ApplicationCustomizerContext;
+    showResourceAndForms: boolean;
 }
 
 export interface IHeaderAppState {}
@@ -30,6 +31,8 @@ export default class HeaderApp extends React.Component<
     }
 
     public render(): React.ReactElement<IHeaderAppProps> {
+        console.log(`Show Resources = ${this.props.showResourceAndForms}`);
+        
         return (
             <div className={styles.headerContainer}>
                 <QueryClientProvider client={queryClient}>

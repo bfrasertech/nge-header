@@ -42,10 +42,7 @@ export const UrgentAnnouncement: React.FC<IUrgentAnnouncementProps> = (
         setAnnouncementClosedDuringSession("true");
     };
 
-    console.log("announce " + !announcementClosedDuringSession);
-
     if (alertResult && announcementClosedDuringSession !== "true") {
-        console.log("rendering");
         return (
             <div className={styles.container} onClick={handleOpenModal}>
                 <div className={styles.innerContainer}>
@@ -96,7 +93,6 @@ export const UrgentAnnouncement: React.FC<IUrgentAnnouncementProps> = (
             </div>
         );
     } else {
-        console.log("not rendering");
         return null;
     }
 };
