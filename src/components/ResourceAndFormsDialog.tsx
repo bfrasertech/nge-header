@@ -6,6 +6,7 @@ import * as common from 'nge-library';
 //import { ToolService } from nge';
 
 import styles from "./ResourceAndFormsDialog.module.scss";
+import { ResourceLinks } from "./ResourceLinks";
 
 export interface IResourceAndFormsProps {
     context: ApplicationCustomizerContext;
@@ -22,13 +23,14 @@ export const ResourceAndFormsDialog: React.FC<IResourceAndFormsProps> = (props: 
     return (
         <div className={styles.container}>
             <NgeMyTools
-                theme="dark"
+                theme="light"
                 columns={4}
                 rows={4}
                 context={context}
                 ngeLibrary={ngeLibrary}
                 toolService={toolService}
             />
+            <ResourceLinks />
         </div>
     );
 };
