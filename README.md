@@ -79,3 +79,9 @@ This extension illustrates the following concepts:
 -   Note: workbench does not work for extensions. You will need to modify /config/serve.json to include the appropriate pageUrl in both default and ngeHeaderCustomization sections
 -   When debugging locally you will sometimes get the error "Error: Script error for: https://localhost:4321/temp/manifests.js http://requirejs.org/docs/errors.html#scripterror"
     In that case browse directly to https://localhost:4321/ accept the cert warning continue on. Then debugging should work normally.
+
+## Build instructions
+- This project depends on the  https://rallen0977@dev.azure.com/rallen0977/NGE%20SharePoint%20Online%20Migration/_git/ScotHillier repo
+- download this repo and the above repo into side by side folders e.g. /projects/guided-search and /projects/scothillier
+- run gulp build from the command line in both the scothillier/NGELibrary and the scothillier/NGEMyTools folders
+- you should now be able to run gulp build or any of the spfx gulp commands such as gulp serve, gulp bundle, etc.
