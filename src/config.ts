@@ -12,5 +12,8 @@ export const config = {
   advancedSearchWebRelativeUrl: '/sitepages/advancedsearch.aspx',
   matterWebRelativeUrl: '/sitepages/matter.aspx',
   clientWebRelativeUrl: '/sitepages/client.aspx',
-  urgentAlertListId: '1c15d57d-703c-4628-be00-efa67461f33d'
+  urgentAlertListId: '1c15d57d-703c-4628-be00-efa67461f33d',
+  policyLinksListId: '6d00bdfd-78bf-40c1-9616-a3d1a7cecca7',
+  formLinksListId: '1baef05c-e697-4adb-a385-ae94561bcd35',
+  resourceLinksListId: '6268d75f-5ef7-4dc3-a8bf-7e4333691461'
 };

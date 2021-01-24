@@ -2,7 +2,7 @@ import * as React from "react";
 import { ApplicationCustomizerContext } from "@microsoft/sp-application-base";
 
 import { NgeMyTools, ToolService } from "nge-my-tools";
-import * as common from 'nge-library';
+import * as common from "nge-library";
 //import { ToolService } from nge';
 
 import styles from "./ResourceAndFormsDialog.module.scss";
@@ -12,11 +12,10 @@ export interface IResourceAndFormsProps {
     context: ApplicationCustomizerContext;
 }
 
-export const ResourceAndFormsDialog: React.FC<IResourceAndFormsProps> = (props: IResourceAndFormsProps): React.ReactElement<
-    Record<string, unknown>
-> => {
-
-    const {context} = props;
+export const ResourceAndFormsDialog: React.FC<IResourceAndFormsProps> = (
+    props: IResourceAndFormsProps
+): React.ReactElement<Record<string, unknown>> => {
+    const { context } = props;
     const ngeLibrary = new common.NgeLibrary();
     const toolService = new ToolService(context);
 
@@ -30,7 +29,7 @@ export const ResourceAndFormsDialog: React.FC<IResourceAndFormsProps> = (props: 
                 ngeLibrary={ngeLibrary}
                 toolService={toolService}
             />
-            <ResourceLinks />
+            <ResourceLinks context={context} />
         </div>
     );
 };

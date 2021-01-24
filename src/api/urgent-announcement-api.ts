@@ -1,5 +1,5 @@
 
-import { SPHttpClient, HttpClientResponse, IHttpClientOptions } from '@microsoft/sp-http';
+import { SPHttpClient, HttpClientResponse } from '@microsoft/sp-http';
 import { ApplicationCustomizerContext } from '@microsoft/sp-application-base';
 import { IUrgentAlert } from '../models/IUrgentAlert';
 import { config } from '../config';

@@ -31,7 +31,7 @@ const HeaderApp: React.FC<IHeaderAppProps> = (props: IHeaderAppProps) => {
         showResourceAndForms,
         onShowResourceAndFormsClose
     } = props;
-    
+
     const resultsAndFormsDialogRef = React.useRef<HTMLDivElement>();
 
     useOutsideClick(resultsAndFormsDialogRef, () => {
@@ -39,9 +39,9 @@ const HeaderApp: React.FC<IHeaderAppProps> = (props: IHeaderAppProps) => {
     });
 
     return (
-        <div>
-            <div className={styles.headerContainer}>
-                <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={queryClient}>
+            <div>
+                <div className={styles.headerContainer}>
                     <HeaderContext.Provider value={{ appContext: context }}>
                         <div className={styles.guidedSearchRow}>
                             <GuidedSearch
@@ -56,15 +56,15 @@ const HeaderApp: React.FC<IHeaderAppProps> = (props: IHeaderAppProps) => {
                             <UrgentAnnouncement context={context} />
                         </div>
                     </HeaderContext.Provider>
-                </QueryClientProvider>
-            </div>
-
-            {showResourceAndForms && (
-                <div ref={resultsAndFormsDialogRef}>
-                    <ResourceAndFormsDialog context={context} />
                 </div>
-            )}
-        </div>
+
+                {showResourceAndForms && (
+                    <div ref={resultsAndFormsDialogRef}>
+                        <ResourceAndFormsDialog context={context} />
+                    </div>
+                )}
+            </div>
+        </QueryClientProvider>
     );
 };
 
