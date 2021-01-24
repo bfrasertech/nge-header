@@ -3,7 +3,7 @@
   "solution": {
     "name": "nge-header",
     "id": "495d42c5-bd17-41db-9df3-2a2d60cc52d4",
-    "version": "1.3.1.0",
+    "version": "1.4.1.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
