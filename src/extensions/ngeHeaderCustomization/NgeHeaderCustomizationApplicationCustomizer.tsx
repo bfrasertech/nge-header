@@ -114,10 +114,16 @@ export default class NgeHeaderCustomizationApplicationCustomizer extends BaseApp
             canvasZones[0].style.backgroundColor = "#53565A";
             canvasZones[1].style.backgroundColor = "#EBEBEB";
 
-            const firstChildNode: Node = canvasZones[1].firstChild;
+            let firstChildNode: Node = canvasZones[0].firstChild;
             if (firstChildNode.nodeType === Node.ELEMENT_NODE) {
                 (firstChildNode as HTMLElement).style.maxWidth = "1920px";
             }
+
+            firstChildNode = canvasZones[1].firstChild;
+            if (firstChildNode.nodeType === Node.ELEMENT_NODE) {
+                (firstChildNode as HTMLElement).style.maxWidth = "1920px";
+            }
+
             this.canvasZoneStylingComplete = true;
             return true;
         }
